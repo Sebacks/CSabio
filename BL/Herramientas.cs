@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class Herramientas
+    public class Herramientas
     {
+        public int RandomNumber()
+        {
+            
+        }
     }
 }
