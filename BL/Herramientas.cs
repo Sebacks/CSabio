@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace BL
             {
                 Random rn = new Random();
                 int num = -valActual + valMin;
-                return rn.Next(-num, 0);
+                return rn.Next(num, 0);
             }
             else 
             {
