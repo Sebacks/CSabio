@@ -53,31 +53,31 @@ namespace BL
                 {
                     case 1:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                     case 2:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                     case 3:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                     case 4:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                     case 5:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                     case 6:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                     case 7:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0, 0);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, 0, 0));
                         break;
                 }
             }
@@ -88,35 +88,35 @@ namespace BL
                 {
                     case 1:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                     case 2:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                     case 3:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                     case 4:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                     case 5:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                     case 6:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                     case 7:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, valActual, valMin);
+                        wordNumber[1] = Convert.ToString(randomNumber(isPositive, valActual, valMin));
                         break;
                 }
-                return wordNumber;
             }
+            return wordNumber;
         }
     #endregion
     #region Validations
