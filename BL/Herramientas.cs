@@ -9,7 +9,7 @@ namespace BL
 {
     public class Herramientas
     {
-        #region randomGenerators
+    #region randomGenerators
         private int randomNumber(int valActual, int valMin)
         {
             Random rn = new Random();
@@ -38,19 +38,22 @@ namespace BL
             else
                 return false;
         }
+        
         public string[] wordGenerator(int valActual, int valMin)
         {
             string[] wordNumber = new string[2];
             Random rn = new Random();
             int num = rn.Next(0, 7);
             bool isPositive = wordIsPositive();
+
             if (wordIsPositive())
             {
+                //Reemplazar texto vacio con frases positivas
                 switch (num)
                 {
                     case 1:
                         wordNumber[0] = "";
-                        wordNumber[1] = randomNumber(isPositive, 0,0);
+                        wordNumber[1] = randomNumber(isPositive, 0, 0);
                         break;
                     case 2:
                         wordNumber[0] = "";
@@ -80,6 +83,7 @@ namespace BL
             }
             else
             {
+                //Reemplazar texto vacio con frases negativas
                 switch (num)
                 {
                     case 1:
@@ -113,10 +117,11 @@ namespace BL
                 }
                 return wordNumber;
             }
-            #endregion
-            #region Validations
-            //valActual es para el valor actual de las acciones de x cosa, valMin es para el valor minimo que pueden tener las acciones de la x cosa
-            public int randomNumberValidate(int valActual, int valMin)
+        }
+    #endregion
+    #region Validations
+        //valActual es para el valor actual de las acciones de x cosa, valMin es para el valor minimo que pueden tener las acciones de la x cosa
+        public int randomNumberValidate(int valActual, int valMin)
         {
             int val = randomNumber(valActual,valMin);
             bool stop = true; ;
@@ -147,6 +152,6 @@ namespace BL
             }
             return val;
         }
-        #endregion
+    #endregion
     }
 }
