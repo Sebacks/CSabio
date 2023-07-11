@@ -1,6 +1,6 @@
 ﻿namespace ET
 {
-    public class Class1
+    public class CompraVenta
     {
 
     }
