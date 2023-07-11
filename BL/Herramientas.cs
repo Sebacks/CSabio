@@ -8,17 +8,20 @@ namespace BL
 {
     public class Herramientas
     {
-       public int randomNumber()
+        #region randomGenerators
+        private int randomNumber(int valActual, int valMin)
         {
             Random rn = new Random();
-            return rn.Next(-200,200);
+            int num = -valActual + valMin;
+            return rn.Next(num, 200);
         }
-        public int randomNumber(bool opc)
+        private int randomNumber(bool opc, int valActual, int valMin)
         {
-            if (opc)
+            if (!opc)
             {
                 Random rn = new Random();
-                return rn.Next(-20000, 0);
+                int num = -valActual + valMin;
+                return rn.Next(-num, 0);
             }
             else 
             {
@@ -26,7 +29,7 @@ namespace BL
                 return rn.Next(0, 20000);
             }
         }
-        public bool wordIsPositive()
+        private bool wordIsPositive()
         {
             Random rn = new Random();
             if(rn.Next(0, 1) == 1)
@@ -34,6 +37,40 @@ namespace BL
             else
                 return false;
         }
-
+        #endregion
+        #region Validations
+        //valActual es para el valor actual de las acciones de x cosa, valMin es para el valor minimo que pueden tener las acciones de la x cosa
+        public int randomNumberValidate(int valActual, int valMin)
+        {
+            int val = randomNumber(valActual,valMin);
+            bool stop = true; ;
+            while (stop)
+            {
+                val = randomNumber(valActual, valMin);
+                if (valActual - val < valMin)
+                    stop = true;
+                else 
+                    stop = false;
+            }
+            return val;
+        }
+        
+        //opc si true, es para los mensajes positivos, como "es hora de comprar acciones" y esto retornara un numero random positivo
+        //opc si es false, lo contrario
+        public int randomNumberValidate(int valActual, int valMin, bool opc)
+        {
+            int val = randomNumber(opc, valActual, valMin);
+            bool stop = true; ;
+            while (stop)
+            {
+                val = randomNumber(opc, valActual, valMin);
+                if (valActual - val < valMin)
+                    stop = true;
+                else
+                    stop = false;
+            }
+            return val;
+        }
+        #endregion
     }
 }
