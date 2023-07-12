@@ -126,6 +126,7 @@ main .sect-2 .btns .btn{
 }
 main .sect-2 .btns .btn:hover{
     scale: 1.05;
+    cursor:pointer;
 }
 main .sect-3 {
     height: 100%;
