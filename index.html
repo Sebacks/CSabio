@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="js/script.js"></script>
     <title>CSabio</title>
 </head>
@@ -27,8 +28,8 @@
                 </div>
             </section>
             <section class="sect-2">
-                <div class="stats">
-                    <span>Aqui va la grafica</span>
+                <div class="stats" width="100%">
+                    <canvas id="stats"></canvas>
                 </div>
                 <div class="btns">
                     <div class="btn">
@@ -58,5 +59,24 @@
     <footer>
         <h1>Proyecto Contabilidad y Finanzas</h1>
     </footer>
+    <script>
+        let Canvas=document.getElementById("stats").getContext("2d");
+        var chart = new Chart(Canvas,{
+            type:"line",
+            data:{
+                datasets:[
+                    {
+                        label: 'Acciones',
+                        data: [59, 80, 81, 56, 55, 40],
+                        fill: true,
+                        tension:0,
+                        borderColor: 'rgb(250, 100, 0)',
+                        backgroundColor: '#01548f',
+                        pointBackgroundColor: '#01548f'
+                    }
+                ]
+            }
+        })
+    </script>
 </body>
 </html>
