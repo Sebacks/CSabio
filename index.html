@@ -8,55 +8,171 @@
     <title>CSabio</title>
 </head>
 <body>
-    <header>
+    <header class="flex">
         <div class="container">
-            <h1>CSABIO</h1>
+            <img src="assets/logo-csabio.png">
         </div>
     </header>
     <div class="container-main">
         <main>
-            <section class="sect-1">
-                <div class="card">
+            <section class="sect-1 flex">
+                <div class="card flex">
                     <h1>Apple</h1>
                 </div>
-                <div class="card">
+                <div class="card flex">
                     <h1>Bitcoin</h1>
                 </div>
-                <div class="card">
-                    <h1>Pornhub</h1>
+                <div class="card flex">
+                    <h1>Dogecoin</h1>
                 </div>
             </section>
-            <section class="sect-2">
+            <section class="sect-2 flex">
                 <div class="stats">
-                    <span>Aqui va la grafica</span>
+                    <canvas id="stats"></canvas>
                 </div>
                 <div class="btns">
-                    <div class="btn">
+                    <div class="btn flex" id="compra" onclick="wordGenerator()">
                         <span>COMPRA</span>
                     </div>
-                    <div class="btn">
+                    <div class="btn flex" id="venta">
                         <span>VENTA</span>
                     </div>
                 </div>
             </section>
-            <section class="sect-3">
+            <section class="sect-3 flex">
                 <div class="card">
-                    <img src="#">
-                    <div class="btn-chat">
+                    <img src="assets/stonks-placeholder.jpeg">
+                    <div class="chat">
+                        <span>CHAT</span>
+                        <label id="data-chat">a</label>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="btn flex">
                         <span>CHAT</span>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="#">
-                    <div class="btn-chat">
-                        <span>SALIR</span>
+                    <div class="chat">
+                        <span>CHAT</span>
+                        <label id="data-chat">a</label>
                     </div>
                 </div>
+                <div class="btn flex">
+                    <span>SALIR</span>
+                </div>
+                
             </section>
         </main>
     </div>
-    <footer>
+    <footer class="flex">
         <h1>Proyecto Contabilidad y Finanzas</h1>
     </footer>
+    <script>
+        function wordIsPositive()
+        {
+            var rn = Math.round(Math.random()*1)
+            if(rn==1)
+                return true
+            else
+                return false
+        }
+        function randomNumber(opc, valActual, valMin)
+        {
+            if (!opc)
+            {  
+                var num = -valActual + valMin;
+                var rn=Math.round(Math.random()*num)
+                return rn
+            }
+            else 
+            {
+                var rn=Math.round(Math.random()*2000)
+                return rn
+            }
+        }
+        function wordGenerator()
+        {
+            var wordNumber=[]
+            var rn = Math.round(Math.random()*7)
+            var isPositive = wordIsPositive()
+            if(wordIsPositive())
+            {
+                switch(rn)
+                {
+                    case 1:
+                        wordNumber[0] = "positive1";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 2:
+                        wordNumber[0] = "positive2";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 3:
+                        wordNumber[0] = "positive3";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 4:
+                        wordNumber[0] = "positive4";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 5:
+                        wordNumber[0] = "positive5";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 6:
+                        wordNumber[0] = "positive6";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 7:
+                        wordNumber[0] = "positive7";
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    default:
+                        wordNumber[0] = "super secret message1"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                }
+                document.getElementById("data-chat").innerHTML=""+wordNumber[0]
+            }
+            else
+            {
+                switch (rn)
+                {
+                    case 1:
+                        wordNumber[0] = "negative1"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 2:
+                        wordNumber[0] = "negative2"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 3:
+                        wordNumber[0] = "negative3"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 4:
+                        wordNumber[0] = "negative4"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 5:
+                        wordNumber[0] = "negative5"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 6:
+                        wordNumber[0] = "negative6"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    case 7:
+                        wordNumber[0] = "negative7"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                    default:
+                        wordNumber[0] = "super secret message2"
+                        wordNumber[1] = randomNumber(isPositive, 0, 0)
+                        break
+                }
+                document.getElementById("data-chat").innerHTML=""+wordNumber[0]
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,170 +1,148 @@
 /* CDN's */
-@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
+/* Generales */
 *, *::after, *::before{
     padding:0;
     margin:0;
     box-sizing: border-box;
+    transition:.1s all ease;
 }
+
 :root{
     /* colores */
     --black:#000;
     --white: #fff;
-    --clr-1: #01548f;
-    --clr-2: #f0d969;
-    --clr-3:#e2da8b;
-    /* fuentes */
-    --font-1: 'Belanosima', sans-serif;
-    --letter-space: .2rem;
-     /* efectos */
-    --shadow-1: 0 0 14px 0 rgba(0, 0, 0, 0.1);
+    --blue: #013d68;
+    --yellow: #fde35f;
+    --bk-1:#faf8f8;
+    /* fonts */
+    --font-1: 'Quicksand', sans-serif;
+    --ls-1: .3rem;
+    /* shadows */
+    --shadow-1: 0 0 30px 0 #bebebebd;
+    --shadow-2: 0 0 14px .5px rgba(0, 0, 0, 0.5);
+    /* border-radius */
+    --bd-rad-1:50px;
+    --bd-rad-2:30px;
 }
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    transition: .3s all ease;
+    background-color: var(--white);
+    border-radius: var(--bd-rad-1);
+    border: 3px solid black;
+    width: 12vw;
+    margin: 1rem;
+    padding-block: .9rem;
+    letter-spacing: .24rem;
+    font-family:var(--font-1);
+}
+body{
+    background-color: var(--bk-1);
+}
+
+/* HEADER STYLES */
 header{
-    height: 5rem;
     box-shadow: var(--shadow-1);
-    width: 100vw;
 }
 header .container{
     font-family: var(--font-1);
-    height:100%;
-    display: flex;
-    color: var(--clr-2);
-    background-color: var(--clr-1);
-    align-items: center;
-    justify-content: space-between;
+    color: var(--blue);
+    padding: 1rem;
+    padding-block-start: 1.2rem;
 }
-header .container h1{
-    margin-inline: 2rem;
-}
-
-.container-main{
-    height: 80vh;
-    background-color: rgba(0, 0, 0, 0.185);
-}
-main{
-    background-color: var(--clr-3);
-    height:100%;
-    width:100%;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-block:2rem;
-    padding-inline: 1rem;
-}
-main .sect-1{
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: var(--shadow-1);
-    background-color: var(--white);
-    padding: 1.3rem;
-    align-items: center;
-    justify-content: center;
-    margin-inline-start: 1rem;
-}
-main .sect-1 .card{
-    font-family: var(--font-1);
-    transition: .5s all ease;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 14px;
-    box-shadow: var(--shadow-1);
-    width: 100%;
-    height: 18vh;
-    margin: .7rem;
-    padding: .8rem;
-    background-color:  var(--clr-1);
-    color: var(--white);
-    letter-spacing: var(--letter-space);
-}
-main .sect-1 .card:hover{
-    scale:1.05;
-}
-
-main .sect-2{
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: space-around;
-    width: 65vw;
-    background-color: rgb(253, 241, 131);
-    
-    height: 100%;
-}
-main .sect-2 .stats{
-    background-color: red;
-    padding:1rem;
-    height: 45vh;
-}
-main .sect-2 .btns{
-    display:flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 3rem;
-    padding:.6rem;
-}
-main .sect-2 .btns div:first-child{
-    background-color: var(--clr-1);
-    color: var(--white);
-}
-main .sect-2 .btns div:last-child{
-    background-color: var(--clr-2);
-    color: var(--clr-1);
-}
-main .sect-2 .btns .btn{
-    display: grid;
-    transition:.5s all ease;
-    justify-content: center;
-    width: 10vw;
-    padding-block:.6rem;
-    font-size: 1.2rem;
-    padding-inline: 2rem;
-    border-radius: .9rem;
-    font-family: var(--font-1);
-}
-main .sect-2 .btns .btn:hover{
-    scale: 1.05;
-}
-main .sect-3 {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--clr-1);
-    /* width: 13vw; */
-    margin:1rem;
-    border-radius: 15px;
-    box-shadow: 0 0 10px 0 #00000066;
-}
-main .sect-3 .card{
+header .container img{
     width: 11vw;
 }
-main .sect-3 .card img{
-    width: 90%;
-}
 
-footer{
+
+/* MAIN STYLES */
+main{
+    display:grid;
+    grid-template-columns:20vw 55vw 20vw;
+    grid-gap: 1rem;
+    padding-inline:1rem;
+    height: 80vh;
+    padding: 1rem;
+}
+.container-main .sect-1{
+    grid-column: 1;
+    flex-direction: column;
+    gap: 1.3rem;
+    background-color: var(--white); 
+    border-radius: var(--bd-rad-1); 
+    box-shadow: var(--shadow-1);   
+}
+.container-main .sect-1 .card{
+    transition: .2s all ease;
+    background-color: var(--black);
+    height: 17vh;
+    padding:1rem;
+    width: 13vw;
+    border-radius: var(--bd-rad-2);
+    box-shadow: var(--shadow-2);
+    
+}
+.container-main .sect-1 .card:hover{
+    scale: 1.02;
+}
+.container-main .sect-1 .card h1{
+    font-family: var(--font-1);
+    color: var(--white);
+}
+.container-main .sect-2{
+    flex-direction: column;
+    grid-column:2;
+    gap: 1rem;
+}
+.container-main .btns{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 8vh;
-    background-color: var(--clr-1);
+    gap: 2rem;
+}
+.container-main .btns .btn{
+    box-shadow: var(--shadow-);
+}
+.container-main .btns div:first-child{
+    background-color: var(--black);
+    color: var(--white);
+}
+.container-main .btns .btn:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+.container-main .btns div:first-child:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+.container-main .sect-3{
+    grid-column: 3;
+    flex-direction: column; 
+    background-color: var(--black);
+    border-radius: var(--bd-rad-1);
+    box-shadow: var(--shadow-1);
+}
+.container-main div:first-child img{
+    width: 15vw;
+}
+/* FOOTER STYLES */
+footer{
+    box-shadow: var(--shadow-1);
+    height: 9vh;
 }
 footer h1{
-    font-size: 1.5rem;
-    letter-spacing: var(--letter-space);
-    color: var(--clr-2);
     font-family: var(--font-1);
+    font-size: 1.5rem;
 }
-
-
 /* Responsive */
 @media screen and (max-width:660px) {
     main{
         flex-direction: column;
 
     }
-  }
+}
