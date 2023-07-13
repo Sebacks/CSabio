@@ -33,7 +33,7 @@
                     <canvas id="stats"></canvas>
                 </div>
                 <div class="btns">
-                    <div class="btn flex" id="compra" onclick="wordGenerator()">
+                    <div class="btn flex" id="compra">
                         <span>COMPRA</span>
                     </div>
                     <div class="btn flex" id="venta">
@@ -46,8 +46,7 @@
                     <img src="assets/stonks-placeholder.jpeg">
                     <div class="chat">
                         <span>CHAT</span>
-                        <label id="data-chat">a</label>
-                        <label id="data-chat">a</label>
+                        <label id="data-chat" style="color: aqua;">a</label>
                     </div>
                 </div>
                 <div class="card">
@@ -70,6 +69,7 @@
         <h1>Proyecto Contabilidad y Finanzas</h1>
     </footer>
     <script>
+        setInterval(wordGenerator(),1000)
         function wordIsPositive()
         {
             var rn = Math.round(Math.random()*1)
