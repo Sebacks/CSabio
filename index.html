@@ -25,11 +25,9 @@
         </div>
     </header>
     <div class="container-main">
-        
         <main>
             <section class="sect-1 flex">
                 <div id="apple" class="card flex">
-                    
                     <svg id="logo-apple" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16"> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> </svg>
                     <div class="text" id="text-apple">
                         <span>APPLE</span>
@@ -52,7 +50,6 @@
                         <span>$<span id="valAccionGoogle">#</span> c/acción</span>
                         <p >Acciones Compradas: <span id="acciCompGoogle">0</span></p>
                     </div>  
-                    
                 </div>
             </section>
             <section class="sect-2 flex">
@@ -94,7 +91,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
                             <label id="data-chat">a</label>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="btn flex">
@@ -211,6 +208,7 @@
         //Actualizar Cartera
         function ActualizarCartera(){
             let carteraSpan=document.getElementById('cartera');
+            cartera = Math.round(cartera);
             carteraSpan.innerText = `$${cartera}`;
         }
         //Compra de acciones
@@ -230,30 +228,24 @@
                 if(cartera>(valAccionGoogle*cantAcciComprar)){
                     cartera-=(valAccionGoogle*cantAcciComprar);
                     acciCompApple +=cantAcciComprar;
-
                 }else{
                     alert('No tienes suficiente dinero para comprar acciones');
                 }
-                
             }
             else if(empresaSelect === 1)
             {
                 if(cartera>(valAccionGoogle*cantAcciComprar)){
                     cartera-=(valAccionGoogle*cantAcciComprar);
                     acciCompNike +=cantAcciComprar;
-
                 }else{
                     alert('No tienes suficiente dinero para comprar acciones');
                 }
-                
             }
             else if(empresaSelect === 2)
             {
                 if(cartera>(valAccionGoogle*cantAcciComprar)){
                     cartera-=(valAccionGoogle*cantAcciComprar);
                     acciCompGoogle +=cantAcciComprar;
-                    
-                    
                 }else{
                     alert('No tienes suficiente dinero para comprar acciones');
                 }
@@ -269,7 +261,6 @@
                 if(acciCompApple>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompApple -=cantAcciVender;
-
                 }else{
                     alert('No tienes suficientes acciones para vender');
                 }
@@ -279,7 +270,6 @@
                 if(acciCompNike>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompNike -=cantAcciVender;
-
                 }else{
                     alert('No tienes suficientes acciones para vender');
                 }
@@ -290,8 +280,6 @@
                 if(acciCompGoogle>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
-                    
-                    
                 }else{
                     alert('No tienes suficientes acciones para vender');
                 }
