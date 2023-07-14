@@ -134,6 +134,7 @@
         histSelected=[];
         var etiquetasSelect=[]
         //Cambiar empresa
+        
         MostrarValorAcciones()
         const btnApple=document.getElementById('apple');
         btnApple.addEventListener('click', () => {
@@ -340,6 +341,7 @@
                 }]
                 },
                 options: {
+                events: ['click'],
                 scales: {
                     y: {
                     beginAtZero: true
@@ -373,9 +375,7 @@
         function valAleatorio()
         {
             histAccionGoogle[histAccionGoogle.length]=Math.floor(Math.random()*200)
-            
             histAccionApple[histAccionApple.length]=Math.floor(Math.random()*200)
-            
             histAccionNike[histAccionNike.length]=Math.floor(Math.random()*200)
             valAccionNike=histAccionNike[histAccionNike.length-1]
             valAccionGoogle=histAccionGoogle[histAccionGoogle.length-1]
@@ -583,16 +583,37 @@
         ActualizarCartera();
         drawGraph();
         var i=Number
+        var unlockedLogro1=false
+        var unlockedLogro2=false
+        var unlockedLogro3=false
+        var unlockedLogro4=false
         i=10
         setInterval(()=>{
             valAleatorio();
             drawGraph();
             document.getElementById("coolDown").innerHTML='15'
             i=10
+            
         },10000)
         setInterval(()=>{
                i-=1
                document.getElementById("coolDown").innerHTML=i
+                if(cartera>=10000&&!unlockedLogro1){
+                    window.alert("Logro desbloqueado, un inicio")
+                    unlockedLogro1=true;
+                }
+                if(cartera>=25000&&!unlockedLogro2){
+                    window.alert("Logro desbloqueado, pequeño capital");
+                    unlockedLogro2=true;
+                }
+                if(cartera>=100000&&!unlockedLogro3){
+                    window.alert("Logro desbloqueado, inversionista creciente")
+                    unlockedLogro3=true;
+                }
+                if(cartera>=1000000&&!unlockedLogro4){
+                    window.alert("Logro desbloqueado, la leyenda")
+                    unlockedLogro4=true;
+                }
         },1100)
     </script>
 </body>
