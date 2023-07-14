@@ -18,7 +18,7 @@
             </div>
             <div class="logo flex">
                 <img id="logo" src="assets/logo-csabio.png">
-                <h1>CARTERA : <span>$$$</span></h1>
+                <h1>CARTERA : <span id="cartera">$$$</span></h1>
             </div>
             
         </div>
@@ -27,7 +27,7 @@
         
         <main>
             <section class="sect-1 flex">
-                <div id="card-marca" class="card flex">
+                <div id="apple" class="card flex">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16"> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> </svg>
                     <div class="text">
                         <span>APPLE</span>
@@ -35,19 +35,18 @@
                     </div>
                     
                 </div>
-                <div id="card-marca-2" class="card flex">
+                <div id="nike" class="card flex">
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Nike</title><path d="M24 7.8L6.442 15.276c-1.456.616-2.679.925-3.668.925-1.12 0-1.933-.392-2.437-1.177-.317-.504-.41-1.143-.28-1.918.13-.775.476-1.6 1.036-2.478.467-.71 1.232-1.643 2.297-2.8a6.122 6.122 0 00-.784 1.848c-.28 1.195-.028 2.072.756 2.632.373.261.886.392 1.54.392.522 0 1.11-.084 1.764-.252L24 7.8z"/></svg>
                     <div class="text">
                         <span>NIKE</span>
                     <span>$107.84 c/acción</span>
                     </div>
-                    
                 </div>
-                <div id="card-marca-3" class="card flex">
+                <div id="google" class="card flex">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16"> <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/> </svg>
                     <div class="text">
                         <span>GOOGLE</span>
-                    <span>$124.77 c/acción</span>
+                        <span>$124.77 c/acción</span>
                     </div>  
                     
                 </div>
@@ -57,20 +56,27 @@
                     <canvas id="stats"></canvas>
                 </div>
                 <div class="btns">
-                    <div class="btn flex" id="compra">
+                    <div class="btn flex" id="comprar">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
                         <span>COMPRA</span>
+                        <div class="cant">
+                            <span>Cant:</span>
+                            <input type="number">
+                        </div>
                     </div>
                     <div class="btn flex" id="venta">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
                         <span>VENTA</span>
+                        <div class="cant">
+                            <span>Cant:</span>
+                            <input type="number">
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="sect-3 flex">
                 <div class="card">
                     <img src="assets/stonks-placeholder.jpeg">
-                    
                 </div>
                 <div class="card">
                     <div class="chat flex">
@@ -95,7 +101,57 @@
         <h1>Contabilidad y Finanzas x Desarrollo Web - COVAO 2023</h1>
     </footer>
     <script>
-        let cartera=1000;
+        let cartera = 2000;
+        //valor acciones
+        let valAccionApple=190.54;
+        let valAccionNike=107.84;
+        let valAccionGoogle=124.77;
+        //cantidad acciones compradas
+        let acciCompApple=0;
+        let acciCompNike=0;
+        let acciCompGoogle=0;
+        let empresaSelect=0;
+        //cantidad de acciones que se van a comprar
+        let cantAcciComprar=1;
+        //Cambiar empresa
+        const btnApple=document.getElementById('apple');
+        btnApple.addEventListener('click', () => {
+            empresaSelect=0;
+        });
+        const btnNike=document.getElementById('nike')
+        btnNike.addEventListener('click',()=>{
+            empresaSelect=1;
+        })
+        const btnGoogle=document.getElementById('google');
+        btnGoogle.addEventListener('click', ()=>{
+            empresaSelect=2;
+        })
+        function ActualizarCartera(){
+            let carteraSpan=document.getElementById('cartera');
+            carteraSpan.innerText = `$${cartera}`;
+        }
+        const btnComprar=document.getElementById('comprar');
+        btnComprar.addEventListener('click',() => {
+            ComprarAccion();
+        });
+        function ComprarAccion(){
+            if(empresaSelect === 0)
+            {
+                cartera-=(valAccionApple*cantAcciComprar);
+                acciCompApple+=1;
+            }
+            else if(empresaSelect === 1)
+            {
+                cartera-=(valAccionNike*cantAcciComprar);
+                acciCompNike+=1;
+            }
+            else if(empresaSelect === 2)
+            {
+                cartera-=(valAccionGoogle*cantAcciComprar);
+                acciCompGoogle +=1;
+            }
+            ActualizarCartera();
+        }
         setInterval(wordGenerator(),1000)
         function wordIsPositive()
         {
@@ -158,6 +214,7 @@
                         break
                     default:
                         wordNumber[0] = "Cartera: +$20"
+                        cartera += 20;
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                 }
@@ -197,21 +254,13 @@
                         break
                     default:
                         wordNumber[0] = "Cartera: -$20"
+                        cartera -= 20;
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                 }
                 document.getElementById("data-chat").innerHTML=""+wordNumber[0]
             }
         }
-        // function getColor(){
-        //     let clr1 = {
-        //         color: 'clr_1'=com,
-        //         estado:true,
-        //         color2: 'clr2',
-        //         estado2: false
-        //     }
-        //     return clr1;
-        // }
         const changeButton = document.getElementById('change-color');
         changeButton.addEventListener('click', () => {
             const computedStyle = getComputedStyle(document.documentElement);
@@ -245,6 +294,7 @@
             document.documentElement.style.setProperty('--clr-1', newValue);
             document.documentElement.style.setProperty('--clr2', newValue2);
         });
+        ActualizarCartera();
     </script>
 </body>
 </html>

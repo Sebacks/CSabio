@@ -218,6 +218,22 @@ main{
     box-shadow: var(--shadow-1);
     color: var(--clr-1);
 }
+.sect-2 .btns .btn .cant{
+    display:none;
+    margin-inline-start: 1rem;
+}
+.sect-2 .btns .btn .cant input{
+    padding: .2rem;
+    background-color: var(--clr2);
+    color: var(--clr-1);
+    width: 3vw;
+    font-family: var(--font-1);
+    border-radius: 5px;
+    border: 1px solid var(--clr-1);
+}
+.sect-2 .btns .btn .cant input:first-child{
+    background-color: var(--clr-1);
+}
 .sect-2 .btns div:first-child{
     background-color: var(--clr-1);
     color: var(--clr2);
@@ -227,10 +243,13 @@ main{
     background-color: var(--clr-1);
     color: var(--clr2);
     border: 3px solid var(--clr2);
+    width: 20vw;
+}
+.sect-2 .btns .btn:hover > .cant{
+    display: flex;
 }
 .sect-2 .btns div:first-child:hover{
     background-color: var(--clr2);
-    
     border: 3px solid var(--clr-1);
 }
 .sect-2 .btns div:first-child:hover span{
