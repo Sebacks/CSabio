@@ -74,6 +74,14 @@ header .container #change-color{
     border: 2px solid var(--clr-1);
     border-radius: var(--bd-rad-2);
 }   
+header .container .logo{
+    flex-direction: column;
+}
+header .container .logo h1{
+    color: var(--clr-1);
+    font-family: var(--font-1);
+    font-size: .9rem;
+}
 header .container #moon{
     display: none;
 }
