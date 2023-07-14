@@ -21,7 +21,7 @@
                 <img id="logo" src="assets/logo-csabio.png">
                 <h1>CARTERA : <span id="cartera">$$$</span></h1>
             </div>
-            <div class="contador">
+            <div class="contador flex">
                 <h5>
                     Las acciones se actualizaran en: <span id="coolDown">10</span>
                 </h5>
@@ -250,8 +250,8 @@
             
             if(empresaSelect === 0)
             {
-                if(cartera>(valAccionGoogle*cantAcciComprar)){
-                    cartera-=(valAccionGoogle*cantAcciComprar);
+                if(cartera>(valAccionApple*cantAcciComprar)){
+                    cartera-=(valAccionApple*cantAcciComprar);
                     acciCompApple +=cantAcciComprar;
 
                 }else{
@@ -260,8 +260,8 @@
             }
             else if(empresaSelect === 1)
             {
-                if(cartera>(valAccionGoogle*cantAcciComprar)){
-                    cartera-=(valAccionGoogle*cantAcciComprar);
+                if(cartera>(valAccionNike*cantAcciComprar)){
+                    cartera-=(valAccionNike*cantAcciComprar);
                     acciCompNike +=cantAcciComprar;
 
                 }else{
@@ -335,7 +335,8 @@
                 datasets: [{
                     label:"Valor de acciones",
                     data:histSelected,
-                    backgroundColor: 'rgba(250,250,250,0.7)'
+                    backgroundColor: 'rgba(250,250,250,0.7)',
+                    tension:0
                 }]
                 },
                 options: {
@@ -586,13 +587,13 @@
         setInterval(()=>{
             valAleatorio();
             drawGraph();
-            document.getElementById("coolDown").innerHTML='10'
+            document.getElementById("coolDown").innerHTML='15'
             i=10
         },10000)
         setInterval(()=>{
                i-=1
                document.getElementById("coolDown").innerHTML=i
-        },1000)
+        },1100)
     </script>
 </body>
 </html>
