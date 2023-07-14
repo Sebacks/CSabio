@@ -150,6 +150,10 @@ main{
     width: 7vw;
     height: 10vh;
 }
+.sect-1 .card p{
+    font-family: var(--font-1);
+    font-size: .9rem;
+}
 .sect-1 .div:last-child{
     gap:1.1rem
 }
