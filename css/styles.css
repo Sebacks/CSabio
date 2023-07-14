@@ -290,6 +290,7 @@ main{
     justify-content: start;
 }
 .sect-3 .chat  .title{
+    transition: .5s all ease;
     font-family: var(--font-1);
     background-color: var(--clr-1);
     color: var(--clr2);
@@ -297,14 +298,30 @@ main{
     width: 100%;
     border: 3px solid var(--clr-1);
     border-radius: var(--bd-rad-1);
-    margin-block-start: -.7rem;
+    gap: .2rem;
+    height: 7vh;
+}
+.sect-3 .chat .title:hover{
+    scale: 1.08;
+}
+.sect-3 .chat .title:hover > svg{
+    rotate: -20deg;
+    scale: 1.4;
+}
+.sect-3 .chat .title svg{
+    fill: var(--clr2);
+    scale: 1.3;
+    rotate: 5deg;
+    margin-inline-end: 1rem;
 }
 .sect-3 .chat .message{
     gap: .5rem;
     justify-content: left;
+    padding-inline-end:1rem ;
 }
 .sect-3 .chat svg{
     margin: .3rem;
+    transition: .5s all ease;
 }
 #data-chat {
     font-family: var(--font-1);
