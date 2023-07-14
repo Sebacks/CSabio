@@ -22,7 +22,7 @@
     --shadow-2: 0 0 14px 0px var(--clr-1);
     --shadow-3: 0 0 10px 0 rgb(19, 19, 19);
     /* border-radius */
-    --bd-rad-1:50px;
+    --bd-rad-1:28px;
     --bd-rad-2:30px;
 }
 svg{fill:var(--clr-1);}
