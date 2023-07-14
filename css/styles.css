@@ -211,7 +211,7 @@ main{
     display: flex;
     gap: 2rem;
 }
-.sect-2 .btns svg{
+.sect-2 .btns .btn .responsive,.check,.check2{
     display: none;
 }
 .sect-2.btns .btn{
@@ -220,7 +220,7 @@ main{
 }
 .sect-2 .btns .btn .cant{
     display:none;
-    margin-inline-start: 1rem;
+    margin-inline-start: .8rem;
 }
 .sect-2 .btns .btn .cant input{
     padding: .2rem;
@@ -248,12 +248,28 @@ main{
 .sect-2 .btns .btn:hover > .cant{
     display: flex;
 }
+.sect-2 .btns .btn:hover>.check{
+    display: flex;
+    fill: var(--clr-1);
+    margin-inline-start: .9rem;
+    scale: 2;
+}
+.sect-2 .btns .btn:hover>.check2{
+    display: flex;
+    fill: var(--clr2);
+    margin-inline-start: .9rem;
+    scale: 2;
+}
 .sect-2 .btns div:first-child:hover{
     background-color: var(--clr2);
     border: 3px solid var(--clr-1);
 }
 .sect-2 .btns div:first-child:hover span{
     color: var(--clr-1);
+}
+.sect-3 .btns .btn .check{
+    display: flex;
+    height: 10vh;
 }
 .sect-3 .chat{
     overflow: hidden;
