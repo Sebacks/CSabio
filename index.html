@@ -61,7 +61,7 @@
                         <span>COMPRA</span>
                         <div class="cant">
                             <span>Cant:</span>
-                            <input type="number">
+                            <input id="cantInput" type="number">
                         </div>
                         <svg class="check" id="check1" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                     </div>
@@ -119,14 +119,17 @@
         const btnApple=document.getElementById('apple');
         btnApple.addEventListener('click', () => {
             empresaSelect=0;
+            btnApple.style.backgroundColor = 'black'
         });
         const btnNike=document.getElementById('nike')
         btnNike.addEventListener('click',()=>{
             empresaSelect=1;
+            btnApple.style.backgroundColor = 'black'
         })
         const btnGoogle=document.getElementById('google');
         btnGoogle.addEventListener('click', ()=>{
             empresaSelect=2;
+            btnApple.style.backgroundColor = 'black'
         })
         function ActualizarCartera(){
             let carteraSpan=document.getElementById('cartera');
@@ -269,7 +272,6 @@
             const computedStyle = getComputedStyle(document.documentElement);
             const clr_1 = computedStyle.getPropertyValue('--clr-1').trim();
             const clr2 = computedStyle.getPropertyValue('--clr2').trim();
-            
             const logo = document.getElementById('logo');
             const sol = document.getElementById('sun');
             const luna = document.getElementById('moon');
