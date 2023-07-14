@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="./assets/zyro-image.png">
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/feca64167c.js" crossorigin="anonymous"></script>
@@ -264,34 +265,34 @@
             cantAcciVender = parseInt(document.getElementById('cantInput2').value);
             if(empresaSelect === 0)
             {
-                if(0<acciCompApple){
+                if(acciCompApple>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompApple -=cantAcciVender;
 
                 }else{
-                    alert('No tienes suficiente dinero para comprar acciones');
+                    alert('No tienes suficientes acciones para vender');
                 }
             }
             else if(empresaSelect === 1)
             {
-                if(0<acciCompNike){
+                if(acciCompNike>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompNike -=cantAcciVender;
 
                 }else{
-                    alert('No tienes suficiente dinero para comprar acciones');
+                    alert('No tienes suficientes acciones para vender');
                 }
                 
             }
             else if(empresaSelect === 2)
             {
-                if(0<acciCompGoogle){
+                if(acciCompGoogle>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
                     
                     
                 }else{
-                    alert('No tienes suficiente dinero para comprar acciones');
+                    alert('No tienes suficientes acciones para vender');
                 }
                 
             }
