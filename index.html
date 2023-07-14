@@ -6,26 +6,46 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/feca64167c.js" crossorigin="anonymous"></script>
     <title>CSabio</title>
 </head>
 <body>
     <header class="flex">
-        <div class="container">
-            <img src="assets/logo-csabio.png">
+        <div class="container flex">
+            <div id="change-color" class="flex">
+                <svg id="sun"  xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+                <svg id="moon"  xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+            </div>
+            <img id="logo" src="assets/logo-csabio.png">
         </div>
     </header>
     <div class="container-main">
         
         <main>
             <section class="sect-1 flex">
-                <div class="card flex">
-                    <h1>Apple</h1>
+                <div id="card-marca" class="card flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16"> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> </svg>
+                    <div class="text">
+                        <span>APPLE</span>
+                        <span>$190.54 <br>c/acción</span>
+                    </div>
+                    
                 </div>
-                <div class="card flex">
-                    <h1>Bitcoin</h1>
+                <div id="card-marca-2" class="card flex">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Nike</title><path d="M24 7.8L6.442 15.276c-1.456.616-2.679.925-3.668.925-1.12 0-1.933-.392-2.437-1.177-.317-.504-.41-1.143-.28-1.918.13-.775.476-1.6 1.036-2.478.467-.71 1.232-1.643 2.297-2.8a6.122 6.122 0 00-.784 1.848c-.28 1.195-.028 2.072.756 2.632.373.261.886.392 1.54.392.522 0 1.11-.084 1.764-.252L24 7.8z"/></svg>
+                    <div class="text">
+                        <span>NIKE</span>
+                    <span>$107.84 c/acción</span>
+                    </div>
+                    
                 </div>
-                <div class="card flex">
-                    <h1>Dogecoin</h1>
+                <div id="card-marca-3" class="card flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16"> <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/> </svg>
+                    <div class="text">
+                        <span>GOOGLE</span>
+                    <span>$124.77 c/acción</span>
+                    </div>  
+                    
                 </div>
             </section>
             <section class="sect-2 flex">
@@ -34,9 +54,11 @@
                 </div>
                 <div class="btns">
                     <div class="btn flex" id="compra">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
                         <span>COMPRA</span>
                     </div>
                     <div class="btn flex" id="venta">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
                         <span>VENTA</span>
                     </div>
                 </div>
@@ -44,18 +66,18 @@
             <section class="sect-3 flex">
                 <div class="card">
                     <img src="assets/stonks-placeholder.jpeg">
-                    <div class="chat">
-                        <span>CHAT</span>
-                        <label id="data-chat" style="color: aqua;">a</label>
-                    </div>
+                    
                 </div>
                 <div class="card">
-                    <div class="btn flex">
-                        <span>CHAT</span>
-                    </div>
-                    <div class="chat">
-                        <span>CHAT</span>
-                        <label id="data-chat">a</label>
+                    <div class="chat flex">
+                        <div class="title flex">
+                            <span>CHAT</span>
+                        </div>
+                        <div class="message flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                            <label id="data-chat">a</label>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="btn flex">
@@ -66,7 +88,7 @@
         </main>
     </div>
     <footer class="flex">
-        <h1>Proyecto Contabilidad y Finanzas</h1>
+        <h1>Contabilidad y Finanzas x Desarrollo Web - COVAO 2023</h1>
     </footer>
     <script>
         setInterval(wordGenerator(),1000)
@@ -176,6 +198,48 @@
                 document.getElementById("data-chat").innerHTML=""+wordNumber[0]
             }
         }
+        // function getColor(){
+        //     let clr1 = {
+        //         color: 'clr_1'=com,
+        //         estado:true,
+        //         color2: 'clr2',
+        //         estado2: false
+        //     }
+        //     return clr1;
+        // }
+        const changeButton = document.getElementById('change-color');
+        changeButton.addEventListener('click', () => {
+            const computedStyle = getComputedStyle(document.documentElement);
+            const clr_1 = computedStyle.getPropertyValue('--clr-1').trim();
+            const clr2 = computedStyle.getPropertyValue('--clr2').trim();
+            
+            const logo = document.getElementById('logo');
+            const sol = document.getElementById('sun');
+            const luna = document.getElementById('moon');
+            let newValue, newValue2;
+            if(clr_1 == '#000')
+            {
+                newValue='#ebebeb';
+                logo.src = '../assets/logo-csabio-blanco.png';
+                sol.style.display = 'none';
+                luna.style.display = 'flex'
+            }
+            else if(clr_1 == '#ebebeb'){
+                newValue='#000';
+                sol.style.display = 'flex';
+                luna.style.display = 'none'
+                logo.src = '../assets/logo-csabio.png';
+            }
+            if(clr2 == '#ebebeb')
+            {
+                newValue2 = '#000'
+            }
+            else if(clr2 == '#000'){
+                newValue2 ='#ebebeb';
+            }
+            document.documentElement.style.setProperty('--clr-1', newValue);
+            document.documentElement.style.setProperty('--clr2', newValue2);
+        });
     </script>
 </body>
 </html>
