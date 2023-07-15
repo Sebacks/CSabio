@@ -377,6 +377,12 @@
             histAccionGoogle[histAccionGoogle.length]=Math.floor(Math.random()*200)
             histAccionApple[histAccionApple.length]=Math.floor(Math.random()*200)
             histAccionNike[histAccionNike.length]=Math.floor(Math.random()*200)
+            if(histAccionApple[histAccionApple.length-1]<=20)
+                histAccionApple[histAccionApple.length-1]=30
+            if(histAccionNike[histAccionNike.length-1]<=20)
+                histAccionNike[histAccionNike.length-1]=30
+            if(histAccionGoogle[histAccionGoogle.length-1]<=20)
+                histAccionGoogle[histAccionGoogle.length-1]=30
             valAccionNike=histAccionNike[histAccionNike.length-1]
             valAccionGoogle=histAccionGoogle[histAccionGoogle.length-1]
             valAccionApple=histAccionApple[histAccionApple.length-1]
@@ -413,6 +419,7 @@
             var wordNumber=[]
             var rn = Math.round(Math.random()*7)
             var isPositive = wordIsPositive()
+            var result
             if(wordIsPositive())
             {
                 switch(rn)
@@ -486,51 +493,87 @@
                 {
                     case 1:
                         wordNumber[0] = "Apple -$20";
-                        valAccionApple-=20;
+                        result = valAccionApple-20
+                        if(result<=0)
+                            valAccionApple=20
+                        else
+                            valAccionApple-=20
                         histAccionApple[histAccionApple.length]=valAccionApple
                         drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 2:
                         wordNumber[0] = "Nike -$20"
-                        valAccionNike-=20;
+                        result = valAccionNike-20
+                        if(result<=0)
+                            valAccionNike=20
+                        else
+                            valAccionNike-=20
                         histAccionNike[histAccionNike.length]=valAccionNike
                         drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 3:
                         wordNumber[0] = "Google -$20"
-                        valAccionGoogle-=20;
+                        result = valAccionGoogle-20
+                        if(result<=0)
+                            valAccionGoogle=20
+                        else
+                            valAccionGoogle-=20
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
                         drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 4:
                         wordNumber[0] = "Apple -$40"
-                        valAccionApple-=40;
+                        result = valAccionApple-40
+                        if(result<=0)
+                            valAccionApple=50
+                        else
+                            valAccionApple-=20
                         histAccionApple[histAccionApple.length]=valAccionApple
                         drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 5:
                         wordNumber[0] = "Nike -$40"
-                        valAccionNike-=40;
+                        result = valAccionNike-40
+                        if(result<=0)
+                            valAccionNike=50
+                        else
+                            valAccionNike-=20
                         histAccionNike[histAccionNike.length]=valAccionNike
                         drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 6:
                         wordNumber[0] = "Google -$40"
-                        valAccionGoogle-=40;
+                        result = valAccionGoogle-40
+                        if(result<=0)
+                            valAccionGoogle=50
+                        else
+                            valAccionGoogle-=20
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
                         drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 7:
                         wordNumber[0] = "Todas -$100"
-                        valAccionApple=Math.round(valAccionApple-=100);
-                        valAccionNike=Math.round(valAccionNike-=100);
-                        valAccionGoogle=Math.round(valAccionGoogle-=100);
+                        result=valAccionApple-100
+                        if(result<=0)
+                            valAccionApple=10
+                        else
+                            valAccionApple=Math.round(valAccionApple-=100);
+                        result=valAccionNike-100
+                        if(result<=0)
+                            valAccionNike=10
+                        else
+                            valAccionNike=Math.round(valAccionNike-=100);
+                        result=valAccionGoogle-100
+                        if(result<=0)
+                            valAccionGoogle=10
+                        else
+                            valAccionGoogle=Math.round(valAccionGoogle-=100)
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle;
                         histAccionApple[histAccionApple.length]=valAccionApple;
                         histAccionNike[histAccionNike.length]=valAccionNike;
