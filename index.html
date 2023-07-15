@@ -241,10 +241,7 @@
         //Compra de acciones
         const btnCheckCompra=document.getElementById('check1');
         btnCheckCompra.addEventListener('click',() => {
-            Swal.fire({
-                        title:"La compra ha sido realizada con exito!!",
-                        icon: 'success'
-                    })
+            
             ComprarAccion();
         }); 
         const btnCheckVenta=document.getElementById('check2');
@@ -260,11 +257,14 @@
                 if(cartera>(valAccionApple*cantAcciComprar)){
                     cartera-=(valAccionApple*cantAcciComprar);
                     acciCompApple +=cantAcciComprar;
-
+                    Swal.fire({
+                        title:"La compra ha sido realizada con exito!!",
+                        icon: 'success'
+                    })
                 }else{
                     Swal.fire({
                         title:"No tienes suficiente dinero para comprar acciones",
-                        icon:error
+                        icon:'error'
                     })
                 }
             }
@@ -273,11 +273,14 @@
                 if(cartera>(valAccionNike*cantAcciComprar)){
                     cartera-=(valAccionNike*cantAcciComprar);
                     acciCompNike +=cantAcciComprar;
-
+                    Swal.fire({
+                        title:"La compra ha sido realizada con exito!!",
+                        icon: 'success'
+                    })
                 }else{
                     Swal.fire({
                         title:"No tienes suficiente dinero para comprar acciones",
-                        icon:error
+                        icon:'error'
                     })
                 }
                 
@@ -287,12 +290,14 @@
                 if(cartera>(valAccionGoogle*cantAcciComprar)){
                     cartera-=(valAccionGoogle*cantAcciComprar);
                     acciCompGoogle +=cantAcciComprar;
-                    
-                    
+                    Swal.fire({
+                        title:"La compra ha sido realizada con exito!!",
+                        icon: 'success'
+                    })
                 }else{
                     Swal.fire({
                         title:"No tienes suficiente dinero para comprar acciones",
-                        icon:error
+                        icon:'error'
                     })
                     
                 }
@@ -301,7 +306,7 @@
             {
                 Swal.fire({
                         title:"Selecciona una empresa para comprar",
-                        icon:warning
+                        icon:'error'
                     })
                 
             }
@@ -313,26 +318,32 @@
             if(empresaSelect === 0)
             {
                 if(acciCompApple>=cantAcciVender){
-                    cartera+=(valAccionGoogle*cantAcciVender);
+                    cartera+=(valAccionNike*cantAcciVender);
                     acciCompApple -=cantAcciVender;
-
+                    Swal.fire({
+                        title:"Se han vendido las "+cantAcciVender+"acciones de Apple",
+                        icon: 'success'
+                    })
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
-                        icon:error
+                        icon:'error'
                     })
                 }
             }
             else if(empresaSelect === 1)
             {
                 if(acciCompNike>=cantAcciVender){
-                    cartera+=(valAccionGoogle*cantAcciVender);
+                    cartera+=(valAccionNike*cantAcciVender);
                     acciCompNike -=cantAcciVender;
-
+                    Swal.fire({
+                        title:"Se han vendido las "+cantAcciVender+"acciones de Nike",
+                        icon: 'success'
+                    })
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
-                        icon:error
+                        icon:'error'
                     })
                 }
                 
@@ -342,12 +353,14 @@
                 if(acciCompGoogle>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
-                    
-                    
+                    Swal.fire({
+                        title:"Se han vendido las "+cantAcciVender+"acciones de Google",
+                        icon: 'success'
+                    })
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
-                        icon:error
+                        icon:'error'
                     })
                     
                 }
