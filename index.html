@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="./assets/zyro-image.png">
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/feca64167c.js" crossorigin="anonymous"></script>
     <title>CSabio</title>
@@ -240,10 +241,15 @@
         //Compra de acciones
         const btnCheckCompra=document.getElementById('check1');
         btnCheckCompra.addEventListener('click',() => {
+            Swal.fire({
+                        title:"La compra ha sido realizada con exito!!",
+                        icon: 'success'
+                    })
             ComprarAccion();
         }); 
         const btnCheckVenta=document.getElementById('check2');
         btnCheckVenta.addEventListener('click',() => {
+
             VenderAccion();
         });
         function ComprarAccion(){
@@ -256,7 +262,10 @@
                     acciCompApple +=cantAcciComprar;
 
                 }else{
-                    alert('No tienes suficiente dinero para comprar acciones');
+                    Swal.fire({
+                        title:"No tienes suficiente dinero para comprar acciones",
+                        icon:error
+                    })
                 }
             }
             else if(empresaSelect === 1)
@@ -266,7 +275,10 @@
                     acciCompNike +=cantAcciComprar;
 
                 }else{
-                    alert('No tienes suficiente dinero para comprar acciones');
+                    Swal.fire({
+                        title:"No tienes suficiente dinero para comprar acciones",
+                        icon:error
+                    })
                 }
                 
             }
@@ -278,12 +290,20 @@
                     
                     
                 }else{
-                    alert('No tienes suficiente dinero para comprar acciones');
+                    Swal.fire({
+                        title:"No tienes suficiente dinero para comprar acciones",
+                        icon:error
+                    })
+                    
                 }
             }
             else
             {
-                window.alert("Selecciona una empresa para comprar")
+                Swal.fire({
+                        title:"Selecciona una empresa para comprar",
+                        icon:warning
+                    })
+                
             }
             MostrarCantidadAcciones();
             ActualizarCartera();
@@ -297,7 +317,10 @@
                     acciCompApple -=cantAcciVender;
 
                 }else{
-                    alert('No tienes suficientes acciones para vender');
+                    Swal.fire({
+                        title:"No tienes suficientes acciones para vender",
+                        icon:error
+                    })
                 }
             }
             else if(empresaSelect === 1)
@@ -307,7 +330,10 @@
                     acciCompNike -=cantAcciVender;
 
                 }else{
-                    alert('No tienes suficientes acciones para vender');
+                    Swal.fire({
+                        title:"No tienes suficientes acciones para vender",
+                        icon:error
+                    })
                 }
                 
             }
@@ -319,7 +345,11 @@
                     
                     
                 }else{
-                    alert('No tienes suficientes acciones para vender');
+                    Swal.fire({
+                        title:"No tienes suficientes acciones para vender",
+                        icon:error
+                    })
+                    
                 }
                 
             }
@@ -589,7 +619,7 @@
                 }
                 MostrarValorAcciones();
                 return wordNumber[0]
-            }
+            }
         }
         const changeButton = document.getElementById('change-color');
         changeButton.addEventListener('click', () => {
@@ -642,19 +672,35 @@
                i-=1
                document.getElementById("coolDown").innerHTML=i
                 if(cartera>=10000&&!unlockedLogro1){
-                    window.alert("Logro desbloqueado, un inicio")
+                    Swal.fire({
+                        title:"Logro desbloqueado, un inicio",
+                        icon: 'success'
+                    })
+                    
                     unlockedLogro1=true;
                 }
                 if(cartera>=25000&&!unlockedLogro2){
-                    window.alert("Logro desbloqueado, pequeño capital");
+                    Swal.fire({
+                        title:"Logro desbloqueado, pequeño capital",
+                        icon: 'success'
+                    })
+                    
                     unlockedLogro2=true;
                 }
                 if(cartera>=100000&&!unlockedLogro3){
-                    window.alert("Logro desbloqueado, inversionista creciente")
+                    Swal.fire({
+                        title:"Logro desbloqueado, inversionista creciente",
+                        icon:'success'
+                    })
                     unlockedLogro3=true;
                 }
                 if(cartera>=1000000&&!unlockedLogro4){
-                    window.alert("Logro desbloqueado, la leyenda")
+                    Swal.fire({
+                        title:"Logro desbloqueado, la leyenda",
+                        icon: 'success'
+                        
+                    })
+                    
                     unlockedLogro4=true;
                 }
         },1100)
