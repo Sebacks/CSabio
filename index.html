@@ -21,6 +21,7 @@
             <div class="logo flex">
                 <img id="logo" src="assets/logo-csabio.png">
                 <h1>CARTERA : <span id="cartera">$$$</span></h1>
+                <h1>Ganancias Totales : <span id="totalGains">0</span></h1>
             </div>
             <div class="contador flex">
                 <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
@@ -136,6 +137,8 @@
         let ultimoValorGo=0;
         let ultimoValorNi=0;
 
+        let gananciasTotales=0;
+
         histAccionApple[0]=valAccionApple;
         histAccionGoogle[0]=valAccionGoogle;
         histAccionNike[0]=valAccionNike;
@@ -176,7 +179,7 @@
             histSelected=histAccionApple;
             etiquetasSelect=histSelected;
             PerdidaGanancia()
-            drawGraph1()
+            drawGraph()
         }
         function NikeSeleccionado(){
             CECNike();
@@ -187,7 +190,7 @@
             histSelected=histAccionNike
             etiquetasSelect=histSelected;
             PerdidaGanancia()
-            drawGraph1()
+            drawGraph()
         }
         function GoogleSeleccionado(){
             CECGoogle(); 
@@ -198,7 +201,7 @@
             histSelected=histAccionGoogle
             etiquetasSelect=histSelected;
             PerdidaGanancia()
-            drawGraph1()
+            drawGraph()
         }
         //Cambiar Empresa Contenido
         function CECApple(){
@@ -247,6 +250,10 @@
         function ActualizarCartera(){
             let carteraSpan=document.getElementById('cartera');
             carteraSpan.innerText = `$${cartera}`;
+        }
+        function ActualizarGains(){
+            let carteraSpan=document.getElementById('totalGains');
+            carteraSpan.innerText = `$${gananciasTotales}`;
         }
         //Compra de acciones
         const btnCheckCompra=document.getElementById('check1');
@@ -375,14 +382,19 @@
             if(empresaSelect === 0)
             {
                 if(acciCompApple>=cantAcciVender){
-                    cartera+=(valAccionNike*cantAcciVender);
+                    cartera+=(valAccionApple*cantAcciVender);
+                    gananciasTotales+=(valAccionApple*cantAcciVender);
                     acciCompApple -=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Apple",
                         icon: 'success'
                     })
-                    ultimoValorAp=0
+                    if(acciCompApple===0)
+                    {
+                        ultimoValorAp=0
+                    }
                     PerdidaGanancia()
+                    ActualizarGains()
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
@@ -394,13 +406,18 @@
             {
                 if(acciCompNike>=cantAcciVender){
                     cartera+=(valAccionNike*cantAcciVender);
+                    gananciasTotales+=(valAccionNike*cantAcciVender);
                     acciCompNike -=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido  "+cantAcciVender+" acciones de Nike",
                         icon: 'success'
                     })
-                    ultimoValorNi=0
+                    if(acciCompNike===0)
+                    {
+                        ultimoValorNi=0
+                    }
                     PerdidaGanancia()
+                    ActualizarGains()
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
@@ -413,13 +430,18 @@
             {
                 if(acciCompGoogle>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
+                    gananciasTotales+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Google",
                         icon: 'success'
                     })
-                    ultimoValorGo=0
+                    if(acciCompGoogle===0)
+                    {
+                        ultimoValorGo=0
+                    }
                     PerdidaGanancia()
+                    ActualizarGains()
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
@@ -432,8 +454,9 @@
             MostrarCantidadAcciones();
             ActualizarCartera();
         }
+        
         const ctx = document.querySelector("#stats");
-        function drawGraph1()
+        function drawGraph()
         {
             new Chart(ctx, {
                 type: 'line',
@@ -556,42 +579,42 @@
                         wordNumber[0] = "Apple +$20";
                         valAccionApple=Math.round(valAccionApple+=20);
                         histAccionApple[histAccionApple.length]=valAccionApple
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 2:
                         wordNumber[0] = "Nike +$20";
                         valAccionNike=Math.round(valAccionNike+=20);
                         histAccionNike[histAccionNike.length]=valAccionNike
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 3:
                         wordNumber[0] = "Google +$20";
                         valAccionGoogle=Math.round(valAccionGoogle+=20);
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 4:
                         wordNumber[0] = "Apple +$50";
                         valAccionApple=Math.round(valAccionApple+=50);
                         histAccionApple[histAccionApple.length]=valAccionApple
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 5:
                         wordNumber[0] = "Nike +$50";
                         valAccionNike=Math.round(valAccionNike+=50);
                         histAccionNike[histAccionNike.length]=valAccionNike
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 6:
                         wordNumber[0] = "Google +$50";
                         valAccionGoogle=Math.round(valAccionGoogle+=50);
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 7:
@@ -602,13 +625,15 @@
                         histAccionApple[histAccionApple.length]=valAccionApple;
                         histAccionNike[histAccionNike.length]=valAccionNike;
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle;
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     default:
                         wordNumber[0] = "Cartera: +$20"
                         cartera = cartera+20;
+                        gananciasTotales+=20;
                         ActualizarCartera()
+                        ActualizarGains()
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                 }
@@ -627,7 +652,7 @@
                         else
                             valAccionApple-=20
                         histAccionApple[histAccionApple.length]=valAccionApple
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 2:
@@ -638,7 +663,7 @@
                         else
                             valAccionNike-=20
                         histAccionNike[histAccionNike.length]=valAccionNike
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 3:
@@ -649,7 +674,7 @@
                         else
                             valAccionGoogle-=20
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 4:
@@ -660,7 +685,7 @@
                         else
                             valAccionApple-=40
                         histAccionApple[histAccionApple.length]=valAccionApple
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 5:
@@ -671,7 +696,7 @@
                         else
                             valAccionNike-=40
                         histAccionNike[histAccionNike.length]=valAccionNike
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 6:
@@ -682,7 +707,7 @@
                         else
                             valAccionGoogle-=40
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 7:
@@ -705,7 +730,7 @@
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle;
                         histAccionApple[histAccionApple.length]=valAccionApple;
                         histAccionNike[histAccionNike.length]=valAccionNike;
-                        drawGraph1();
+                        drawGraph();
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     default:
@@ -752,7 +777,7 @@
             document.documentElement.style.setProperty('--clr2', newValue2);
         });
         ActualizarCartera();
-        drawGraph1();
+        drawGraph();
         var i=Number
         var unlockedLogro1=false
         var unlockedLogro2=false
@@ -761,7 +786,7 @@
         i=10
         setInterval(()=>{
             valAleatorio();
-            drawGraph1();
+            drawGraph();
             PerdidaGanancia();
             document.getElementById("coolDown").innerHTML='10'
             i=10
