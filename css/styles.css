@@ -58,6 +58,10 @@ header{
     box-shadow: var(--shadow-1);
     grid-row: 1;
 }
+header #logo-oscuro{
+    background-repeat: no-repeat;
+    display:none;
+}
 header .container{
     padding: 1rem;
 }
