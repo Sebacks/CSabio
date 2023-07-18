@@ -124,15 +124,19 @@
             <h3>Vendiste <span id="accVendiNike">0</span> acciones de Nike</h3>
             <h3>Vendiste <span id="accVendiGoogle">0</span> acciones de Google</h3>
             <h3>Tus ganancias totales alcanzan los: <span id="gananciasTotales">0</span></h3>
-            <h3>Alcanzaste un maximo de <span id="gananciasTotales">0</span> bitcoin en la cartera</h3>
+            <h3>Alcanzaste un maximo de <span id="carteraMaximo">0</span> bitcoin en la cartera</h3>
         </div>
     </div>
     <footer class="flex">
         <h1>Contabilidad y Finanzas x Desarrollo Web - COVAO 2023</h1>
     </footer>
     <script>
-        var tiempoJuego = 1;
+        let acciVendiApple=0
+        let acciVendiNike=0
+        let acciVendiGoogle=0
+        var tiempoJuego = 100;
         let cartera = 2000;
+        let carteraMax = cartera;
         //valor acciones
         let valAccionApple=190;
         let valAccionNike=107;
@@ -470,8 +474,11 @@
             {
                 if(acciCompApple>=cantAcciVender){
                     cartera+=(valAccionApple*cantAcciVender);
+                    if(cartera>=carteraMax)
+                        carteraMax=cartera
                     gananciasTotales+=(valAccionApple*cantAcciVender);
                     acciCompApple -=cantAcciVender;
+                    acciVendiApple+=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Apple",
                         icon: 'success'
@@ -493,8 +500,11 @@
             {
                 if(acciCompNike>=cantAcciVender){
                     cartera+=(valAccionNike*cantAcciVender);
+                    if(cartera>=carteraMax)
+                        carteraMax=cartera
                     gananciasTotales+=(valAccionNike*cantAcciVender);
                     acciCompNike -=cantAcciVender;
+                    acciVendiNike+=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido  "+cantAcciVender+" acciones de Nike",
                         icon: 'success'
@@ -517,8 +527,11 @@
             {
                 if(acciCompGoogle>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
+                    if(cartera>=carteraMax)
+                        carteraMax=cartera
                     gananciasTotales+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
+                    acciVendiGoogle+=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Google",
                         icon: 'success'
@@ -722,6 +735,8 @@
                         wordNumber[0] = "Cartera: +$20"
                         cartera = cartera+20;
                         gananciasTotales+=20;
+                        if(cartera>=carteraMax)
+                            carteraMax=cartera
                         ActualizarCartera()
                         ActualizarGains()
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
@@ -964,6 +979,7 @@
         function iniciarContador() {
             btnIniciar.style.display = "none";
             contadorTiempo.style.display="inline-block"
+            tiempoJuego = 60
             contadores();
             habilitarBotones()
             function actualizarContador() {
@@ -1015,13 +1031,25 @@
             clearInterval(intervalo);
             clearInterval(secInterval);
             clearInterval(coolInterval);
-            PerdidaGanancia()
-            ActualizarCartera()
             deshabilitarBotones()
             NonSelected()
+            mostrarModal()
             drawGraph()
+            PerdidaGanancia()
+            ActualizarCartera()
+        }
+        var acciVendiAppleT = document.getElementById("accVendiApple")
+        var acciVendiGoogleT = document.getElementById("accVendiGoogle")
+        var acciVendiNikeT = document.getElementById("accVendiNike")
+        var maxCarteraT = document.getElementById("carteraMaximo") 
+        var gainsTotal = document.getElementById("gananciasTotales")
+        function mostrarModal(){
             modal.style.display="block"
-            reiniciarValores()
+            acciVendiAppleT.innerHTML=acciVendiApple.toString()
+            acciVendiGoogleT.innerHTML=acciVendiGoogle.toString()
+            acciVendiNikeT.innerHTML=acciVendiNike.toString()
+            maxCarteraT.innerHTML=carteraMax.toString()
+            gainsTotal.innerHTML=gananciasTotales.toString()
         }
         deshabilitarBotones()
         contadorTiempo.style.display="none"
