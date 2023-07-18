@@ -91,6 +91,39 @@ header .contador{
     color: var(--clr-1);
     margin-inline-start: 1rem;
 }
+header .logos{
+    width: 25vw;
+    position: absolute;
+    right: -30px;
+    gap: 2rem;
+}
+header .logos::before{
+    position: absolute;
+    background-color: #000;
+    width: 15px;
+    rotate:-45deg;
+    z-index: 1;
+    height: 2px;
+    content: '';
+}
+header .logos::after{
+    position: absolute;
+    background-color: #000;
+    width: 15px;
+    rotate:45deg;
+    z-index: 1;
+    height: 2px;
+    content: '';
+}
+header .logos img{
+    width: 3.3vw;
+}
+header .logos img:first-child{
+    width: 2.2vw;
+}
+header .logos img:last-child{
+    translate: 10px;
+}
 /* MAIN STYLES */
 main{
     grid-row: 2;
