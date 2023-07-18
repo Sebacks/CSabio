@@ -26,6 +26,8 @@
             </div>
             <div class="contador flex">
                 <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
+                <h2><span id="contadorTiempo"></span></h2>
+                <button id="btnIniciar">Iniciar Juego</button>
             </div>
             <div class="logos flex">
                 <img src="./assets/logo-conta.png">
@@ -545,8 +547,11 @@
             valAccionApple=histAccionApple[histAccionApple.length-1]
             MostrarValorAcciones(); 
         }
-        puedePresionar=true;
         const boton = document.getElementById("msj")
+        boton.disabled = true;
+        boton.innerHTML= "Deshabilitado"
+        boton.style.opacity="0.2"
+        puedePresionar = false;
         var conta = 10
         boton.addEventListener('click',() => {
             if (puedePresionar) 
@@ -810,54 +815,92 @@
         ActualizarCartera();
         drawGraph();
         var i=Number
+        var coolInterval
+        var secInterval
         var unlockedLogro1=false
         var unlockedLogro2=false
         var unlockedLogro3=false
         var unlockedLogro4=false
         i=10
-        setInterval(()=>{
-            valAleatorio();
-            drawGraph();
-            PerdidaGanancia();
-            document.getElementById("coolDown").innerHTML='10'
-            i=10
-        },10000)
-        setInterval(()=>{
-               i-=1
-               document.getElementById("coolDown").innerHTML=i
-                if(cartera>=10000&&!unlockedLogro1){
-                    Swal.fire({
-                        title:"Logro desbloqueado, un inicio",
-                        icon: 'success'
-                    })
-                    
-                    unlockedLogro1=true;
-                }
-                if(cartera>=25000&&!unlockedLogro2){
-                    Swal.fire({
-                        title:"Logro desbloqueado, pequeño capital",
-                        icon: 'success'
-                    })
-                    
-                    unlockedLogro2=true;
-                }
-                if(cartera>=100000&&!unlockedLogro3){
-                    Swal.fire({
-                        title:"Logro desbloqueado, inversionista creciente",
-                        icon:'success'
-                    })
-                    unlockedLogro3=true;
-                }
-                if(cartera>=1000000&&!unlockedLogro4){
-                    Swal.fire({
-                        title:"Logro desbloqueado, la leyenda",
-                        icon: 'success'
+        function contadores(){
+            coolInterval=setInterval(()=>{
+                valAleatorio();
+                drawGraph();
+                PerdidaGanancia();
+                document.getElementById("coolDown").innerHTML='10'
+                i=10
+            },10000)
+            secInterval=setInterval(()=>{
+                i-=1
+                document.getElementById("coolDown").innerHTML=i
+                    if(cartera>=10000&&!unlockedLogro1){
+                        Swal.fire({
+                            title:"Logro desbloqueado, un inicio",
+                            icon: 'success'
+                        })
                         
-                    })
-                    
-                    unlockedLogro4=true;
+                        unlockedLogro1=true;
+                    }
+                    if(cartera>=25000&&!unlockedLogro2){
+                        Swal.fire({
+                            title:"Logro desbloqueado, pequeño capital",
+                            icon: 'success'
+                        })
+                        
+                        unlockedLogro2=true;
+                    }
+                    if(cartera>=100000&&!unlockedLogro3){
+                        Swal.fire({
+                            title:"Logro desbloqueado, inversionista creciente",
+                            icon:'success'
+                        })
+                        unlockedLogro3=true;
+                    }
+                    if(cartera>=1000000&&!unlockedLogro4){
+                        Swal.fire({
+                            title:"Logro desbloqueado, la leyenda",
+                            icon: 'success'
+                            
+                        })
+                        
+                        unlockedLogro4=true;
+                    }
+            },1100)
+        }
+        const btnIniciar = document.getElementById("btnIniciar")
+        btnIniciar.addEventListener('click',iniciarContador)
+        function iniciarContador() {
+            btnIniciar.style.display = "none";
+            var tiempoInicial = 300;
+            contadores();
+            boton.disabled = false;
+            puedePresionar = true;
+            boton.innerHTML="Mensajes"
+            boton.style.opacity="1"
+            function actualizarContador() {
+            var minutos = Math.floor(tiempoInicial / 60);
+            var segundos = tiempoInicial % 60;
+            console.log(minutos.toString().padStart(2, "0") + ":" + segundos.toString().padStart(2, "0"));
+            tiempoInicial--;
+                if (tiempoInicial < 0) {
+                    pararJuego()
+                    btnIniciar.style.display = "inline-block";
                 }
-        },1100)
+            }
+            intervalo = setInterval(actualizarContador, 1000);
+        }
+        function pararJuego() 
+        {
+            clearInterval(intervalo);
+            clearInterval(secInterval);
+            clearInterval(coolInterval);
+            i=10
+            document.getElementById("coolDown").innerHTML='10'
+            boton.disabled = true;
+            boton.innerHTML= "Deshabilitado"
+            boton.style.opacity="0.2"
+            puedePresionar = false;
+        }
     </script>
 </body>
 </html>
