@@ -103,8 +103,9 @@
                                     Ganancia
                                 </span>
                             </div>
-                            <div class="flex gainsChart">
-                                <canvas id="tablaGanancias" width="100px" height="60px"></canvas>
+                            <div class="">
+                                <span id="valorInicio"></span>
+                                <span id="ganaPierde">Compre una accion para ver su ganancia</span>
                             </div>
                         </div>
                     </div>
@@ -178,6 +179,7 @@
             btnGoogle.style.backgroundColor='white';
             histSelected=histAccionApple;
             etiquetasSelect=histSelected;
+            PerdidaGanancia()
             drawGraph1()
         }
         function NikeSeleccionado(){
@@ -188,6 +190,7 @@
             btnNike.style.backgroundColor='black';
             histSelected=histAccionNike
             etiquetasSelect=histSelected;
+            PerdidaGanancia()
             drawGraph1()
         }
         function GoogleSeleccionado(){
@@ -198,6 +201,7 @@
             btnGoogle.style.backgroundColor='black';
             histSelected=histAccionGoogle
             etiquetasSelect=histSelected;
+            PerdidaGanancia()
             drawGraph1()
         }
         //Cambiar Empresa Contenido
@@ -270,6 +274,7 @@
                         icon: 'success'
                     })
                     ultimoValorAp=valAccionApple;
+                    PerdidaGanancia()
                 }else{
                     Swal.fire({
                         title:"No tienes suficiente dinero para comprar acciones",
@@ -287,14 +292,13 @@
                         icon: 'success'
                     })
                     ultimoValorNi=valAccionNike
+                    PerdidaGanancia()
                 }else{
                     Swal.fire({
                         title:"No tienes suficiente dinero para comprar acciones",
                         icon:'error'
                     })
-                    
                 }
-                
             }
             else if(empresaSelect === 2)
             {
@@ -306,12 +310,12 @@
                         icon: 'success'
                     })
                     ultimoValorGo=valAccionGoogle
+                    PerdidaGanancia()
                 }else{
                     Swal.fire({
                         title:"No tienes suficiente dinero para comprar acciones",
                         icon:'error'
                     })
-                    
                 }
             }
             else
@@ -320,7 +324,6 @@
                         title:"Selecciona una empresa para comprar",
                         icon:'error'
                     })
-                
             }
             MostrarCantidadAcciones();
             ActualizarCartera();
@@ -328,19 +331,48 @@
         var valor
         function PerdidaGanancia()
         {
-            switch(empresaSelect)
-            {
+            switch(empresaSelect){
                 case 0:
-                    valor=ultimoValorAp-valAccionApple
+                    valor=valAccionApple-ultimoValorAp
+                    if(ultimoValorAp!=0)
+                    {
+                        document.getElementById("ganaPierde").innerHTML="Ganancia: "+valor
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorAp
+                    }
+                    else
+                    {
+                        document.getElementById("valorInicio").innerHTML=""
+                        document.getElementById("ganaPierde").innerHTML="Compre una accion para ver su ganancia"
+                    }
                     break
                 case 1:
-                    valor=ultimoValorNi-valAccionNike
+                    valor=valAccionNike-ultimoValorNi
+                    if(ultimoValorNi!=0)
+                    {
+                        document.getElementById("ganaPierde").innerHTML="Ganancia: "+valor
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorNi
+                    }
+                    else
+                    {
+                        document.getElementById("valorInicio").innerHTML=""
+                        document.getElementById("ganaPierde").innerHTML="Compre una accion para ver su ganancia"
+                    }
                     break
                 case 2:
-                    valor=ultimoValorGo-valAccionGoogle
+                    valor=valAccionGoogle-ultimoValorGo
+                    if(ultimoValorGo!=0)
+                    {
+                        document.getElementById("ganaPierde").innerHTML="Ganancia: "+valor
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorGo
+                    }
+                    else
+                    {
+                        document.getElementById("valorInicio").innerHTML=""
+                        document.getElementById("ganaPierde").innerHTML="Compre una accion para ver su ganancia"
+                    }
                     break
             }
-
+            
         }
         function VenderAccion(){
             cantAcciVender = parseInt(document.getElementById('cantInput2').value);
@@ -353,6 +385,8 @@
                         title:"Se han vendido las "+cantAcciVender+" acciones de Apple",
                         icon: 'success'
                     })
+                    ultimoValorAp=0
+                    PerdidaGanancia()
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
@@ -369,6 +403,8 @@
                         title:"Se han vendido las "+cantAcciVender+" acciones de Nike",
                         icon: 'success'
                     })
+                    ultimoValorNi=0
+                    PerdidaGanancia()
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
@@ -386,6 +422,8 @@
                         title:"Se han vendido las "+cantAcciVender+" acciones de Google",
                         icon: 'success'
                     })
+                    ultimoValorGo=0
+                    PerdidaGanancia()
                 }else{
                     Swal.fire({
                         title:"No tienes suficientes acciones para vender",
@@ -399,52 +437,6 @@
             ActualizarCartera();
         }
         const ctx = document.querySelector("#stats");
-        const ctx2 = document.querySelector("#tablaGanancias")
-        function drawGraph2()
-        {
-            new Chart(ctx2, {
-                type: 'line',
-                data: {
-                labels:etiquetasSelect,
-                datasets: [{
-                    label:"Ganancias",
-                    data:histSelected,
-                    backgroundColor: 'rgba(250,250,250,0.7)',
-                    tension:0
-                }]
-                },
-                options: {
-                events: ['click'],
-                scales: {
-                    y: {
-                    beginAtZero: true
-                    }
-                },
-                transitions: {
-                    show: {
-                        animations: {
-                        x: {
-                            from: 0
-                        },
-                        y: {
-                            from: 0
-                        }
-                        }
-                    },
-                    hide: {
-                        animations: {
-                        x: {
-                            to: 0
-                        },
-                        y: {
-                            to: 0
-                        }
-                        }
-                    }
-                }
-                }
-            });
-        }
         function drawGraph1()
         {
             new Chart(ctx, {
@@ -509,6 +501,7 @@
         const msj = document.getElementById("msj")
         msj.addEventListener('click',() => {
             document.getElementById("data_chat").innerHTML=wordGenerator()
+            PerdidaGanancia()
         })
         function wordIsPositive()
         {
@@ -743,7 +736,6 @@
         });
         ActualizarCartera();
         drawGraph1();
-        drawGraph2();
         var i=Number
         var unlockedLogro1=false
         var unlockedLogro2=false
@@ -753,10 +745,9 @@
         setInterval(()=>{
             valAleatorio();
             drawGraph1();
-            drawGraph2();
+            PerdidaGanancia();
             document.getElementById("coolDown").innerHTML='10'
             i=10
-
         },10000)
         setInterval(()=>{
                i-=1
