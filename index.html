@@ -332,6 +332,7 @@
             ActualizarCartera();
         }
         var valor
+        var ganaPierde = document.getElementById("ganaPierde")
         function PerdidaGanancia()
         {
             switch(empresaSelect){
@@ -339,7 +340,16 @@
                     valor=valAccionApple-ultimoValorAp
                     if(ultimoValorAp!=0)
                     {
-                        document.getElementById("ganaPierde").innerHTML="Ganancia: "+valor
+                        if(valor<0)
+                        {
+                            ganaPierde.innerHTML="Perderias: "+valor
+                            ganaPierde.style.color="red"
+                        }
+                        else
+                        {
+                            ganaPierde.innerHTML="Ganarias: "+-valor
+                            ganaPierde.style.color="green"
+                        }
                         document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorAp
                     }
                     else
@@ -352,7 +362,16 @@
                     valor=valAccionNike-ultimoValorNi
                     if(ultimoValorNi!=0)
                     {
-                        document.getElementById("ganaPierde").innerHTML="Ganancia: "+valor
+                        if(valor<0)
+                        {
+                            ganaPierde.innerHTML="Perderias: "+valor
+                            ganaPierde.style.color="red"
+                        }
+                        else
+                        {
+                            ganaPierde.innerHTML="Ganarias: "+-valor
+                            ganaPierde.style.color="green"
+                        }
                         document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorNi
                     }
                     else
@@ -365,7 +384,16 @@
                     valor=valAccionGoogle-ultimoValorGo
                     if(ultimoValorGo!=0)
                     {
-                        document.getElementById("ganaPierde").innerHTML="Ganancia: "+valor
+                        if(valor<0)
+                        {
+                            ganaPierde.innerHTML="Perderias: "+valor
+                            ganaPierde.style.color="red"
+                        }
+                        else
+                        {
+                            ganaPierde.innerHTML="Ganarias: "+-valor
+                            ganaPierde.style.color="green"
+                        }
                         document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorGo
                     }
                     else
@@ -375,7 +403,6 @@
                     }
                     break
             }
-            
         }
         function VenderAccion(){
             cantAcciVender = parseInt(document.getElementById('cantInput2').value);
