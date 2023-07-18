@@ -979,7 +979,7 @@
         function iniciarContador() {
             btnIniciar.style.display = "none";
             contadorTiempo.style.display="inline-block"
-            tiempoJuego = 60
+            tiempoJuego = 300
             contadores();
             habilitarBotones()
             function actualizarContador() {
@@ -1034,9 +1034,12 @@
             deshabilitarBotones()
             NonSelected()
             mostrarModal()
+            reiniciarValores()
             drawGraph()
+            
             PerdidaGanancia()
             ActualizarCartera()
+            
         }
         var acciVendiAppleT = document.getElementById("accVendiApple")
         var acciVendiGoogleT = document.getElementById("accVendiGoogle")
