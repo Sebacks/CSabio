@@ -367,6 +367,17 @@ main{
     background-color: var(--clr-1);
     color: var(--clr2);
 }
+.ganancias-text{
+    width: 100%;
+    padding-block: .7rem;
+    flex-direction: column;
+
+}
+.ganancias-text span{
+    color: var(--clr-1);
+    font-family: var(--font-1);
+    font-size: .9rem;
+}
 /* FOOTER STYLES */
 footer{
     background-color: var(--clr2);

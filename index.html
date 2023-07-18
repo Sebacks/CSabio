@@ -94,13 +94,11 @@
                         </div>
                         <div class="ganancias">
                             <div class="title2 flex">
-                                <span>
-                                    Ganancia
-                                </span>
+                                <span>Ganancia </span>
                             </div>
-                            <div class="">
+                            <div class="ganancias-text flex">
                                 <span id="valorInicio"></span>
-                                <span id="ganaPierde">Compre una accion para ver su ganancia</span>
+                                <span id="ganaPierde">Aún no hay ganancias</span>
                             </div>
                         </div>
                     </div>
@@ -337,7 +335,7 @@
                     else
                     {
                         document.getElementById("valorInicio").innerHTML=""
-                        document.getElementById("ganaPierde").innerHTML="Compre una accion para ver su ganancia"
+                        document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
                     break
                 case 1:
@@ -350,7 +348,7 @@
                     else
                     {
                         document.getElementById("valorInicio").innerHTML=""
-                        document.getElementById("ganaPierde").innerHTML="Compre una accion para ver su ganancia"
+                        document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
                     break
                 case 2:
@@ -363,7 +361,7 @@
                     else
                     {
                         document.getElementById("valorInicio").innerHTML=""
-                        document.getElementById("ganaPierde").innerHTML="Compre una accion para ver su ganancia"
+                        document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
                     break
             }
@@ -395,7 +393,7 @@
                     cartera+=(valAccionNike*cantAcciVender);
                     acciCompNike -=cantAcciVender;
                     Swal.fire({
-                        title:"Se han vendido las "+cantAcciVender+" acciones de Nike",
+                        title:"Se han vendido  "+cantAcciVender+" acciones de Nike",
                         icon: 'success'
                     })
                     ultimoValorNi=0
