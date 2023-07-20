@@ -888,7 +888,7 @@
                     case 5:
                     Swal.fire({
                         title:"Nike sufre con la ruptura de la zapatilla de Zion Williamson en TV",
-                            imageUrl: 'assets/Nike suela.jpg',
+                            imageUrl: 'assets/nikesuela.jpg',
                             text:"Esto provoco que el jugador Zion Williamson",
                             color:'black'
                         })
@@ -966,20 +966,22 @@
             }
         }
         const changeButton = document.getElementById('change-color');
-
+        const clr1 = '#004aad';
+        const clr2 = 'white';
+        const clr3 = 'ffde59';
         changeButton.addEventListener('click', () => {
             const computedStyle = getComputedStyle(document.documentElement);
             const clr_1 = computedStyle.getPropertyValue('--clr-1').trim();
-            const clr2 = computedStyle.getPropertyValue('--clr2').trim();
+            const clr_2 = computedStyle.getPropertyValue('--clr2').trim();
             const logo = document.getElementById('logo');
             const logoOscuro = document.getElementById('logo-oscuro');
             const sol = document.getElementById('sun');
             const luna = document.getElementById('moon');
-            let newValue, newValue2;
+            let newValue, newValue2, newValue3;
             const ganaciasTexto = document.getElementById('ganaPierde')
-            if(clr_1 == '#000')
+            if(clr_1 == clr1)
             {
-                newValue='#ebebeb';
+                newValue='#001d42';
                 logoOscuro.style.display = 'flex'
                 sol.style.display = 'none'
                 logo.style.display = 'none'
@@ -994,7 +996,6 @@
             }
             if(clr2 == '#ebebeb')
             {
-                
                 if(ganaciasTexto.innerHTML == "Aún no hay ganancias")
                     ganaciasTexto.style.color = '#fff'
                 newValue2 = '#000'
@@ -1082,13 +1083,13 @@
         {
             boton.disabled = true;
             boton.innerHTML= "Deshabilitado"
-            boton.style.opacity="0.3"
+            boton.style.opacity="0.7"
             btnApple.disabled = true;
-            btnApple.style.opacity="0.3"
+            btnApple.style.opacity="0.7"
             btnNike.disabled = true;
-            btnNike.style.opacity="0.3"
+            btnNike.style.opacity="0.7"
             btnGoogle.disabled = true;
-            btnGoogle.style.opacity="0.3"
+            btnGoogle.style.opacity="0.7"
             puedePresionar = false;
             puedePresionarApple=false
             puedePresionarGoogle=false
