@@ -234,7 +234,6 @@
         let textGoogle = document.getElementById('text-google');
         let valGen;
         function AppleSeleccionado(){
-            CECApple();
             empresaSelect=0;
             btnApple.style.background = clr3;
             btnGoogle.style.background = clr1;
@@ -249,11 +248,7 @@
             PerdidaGanancia()
             drawGraph()
         }
-        function CECApple(){
-            
-        }
         function NikeSeleccionado(){
-            CECNike();
             empresaSelect=1;    
             btnApple.style.background = clr1;
             btnGoogle.style.background = clr1;
@@ -267,8 +262,7 @@
             PerdidaGanancia()
             drawGraph()
         }
-        function GoogleSeleccionado(){
-            CECGoogle(); 
+        function GoogleSeleccionado(){ 
             empresaSelect=2;
             btnApple.style.background = clr1;
             btnGoogle.style.background = clr3;
@@ -281,18 +275,6 @@
             textNike.style.color = clr3;
             PerdidaGanancia()
             drawGraph()
-        }
-        //Cambiar Empresa Contenido
-        
-        function CECNike(){
-            
-        }
-        function CECGoogle(){
-            
-        }
-        function NonSelected()
-        {
-            
         }
         // Valor de las acciones
         function MostrarValorAcciones(){
@@ -315,11 +297,11 @@
         //Actualizar Cartera
         function ActualizarCartera(){
             let carteraSpan=document.getElementById('cartera');
-            carteraSpan.innerText = `$${cartera}`;
+            carteraSpan.innerText = `₿ ${cartera}`;
         }
         function ActualizarGains(){
             let carteraSpan=document.getElementById('totalGains');
-            carteraSpan.innerText = `$${gananciasTotales}`;
+            carteraSpan.innerText = `₿  ${gananciasTotales}`;
         }
         //Compra de acciones
         const btnCheckCompra=document.getElementById('check1');
@@ -574,7 +556,7 @@
                 datasets: [{
                     label:"Valor de acciones",
                     data:histSelected,
-                    backgroundColor: "rgb(0, 29, 66)",
+                    backgroundColor: "rgb(250, 250, 250,0.7)",
                     tension:0
                 }]
                 },
