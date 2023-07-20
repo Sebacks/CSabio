@@ -12,8 +12,10 @@
 
 :root{
     /* colores */
-    --clr-1:darkblue;
+    --clr-1:#004aad;
+    --c: #001d42;
     --clr2: #fff;
+    --clr-3: #ffde59;
     /* fonts */
     --font-1: 'Quicksand', sans-serif;
     --ls-1: .3rem;
@@ -99,16 +101,6 @@ header .container #moon{
     height: 50vh;
     z-index: -1;
 }
-.sect-2 .contador{
-    font-family: var(--font-1);
-    font-size: 1rem;
-    background-color: var(--clr2);
-    padding: .5rem 2rem;
-    border: 4px solid var(--clr-1);
-    border-radius: 1rem;
-    color: var(--clr-1);
-    margin-inline-start: 1rem;
-}
 header .logos{
     width: 25vw;
     position: absolute;
@@ -157,10 +149,10 @@ main{
     flex-direction: column;
     gap: 1.3rem;
     padding: 2rem;
-    border: 3px solid var(--clr-1);
-    background-color: var(--clr2); 
+    border: 3px solid var(--clr2);
+    background-color: var(--clr-1); 
     border-radius: var(--bd-rad-1); 
-    box-shadow: var(--shadow-1);   
+    box-shadow: var(--shadow-2);   
 }
 .sect-1::before{
     position: absolute;
@@ -185,24 +177,24 @@ main{
 .sect-1 .card{
     transition: .5s all ease;
     flex-direction: row;
-    background-color: var(--clr2);
+    background-color: var(--clr-1);
     width: 13vw;
     gap: .7rem;
-    border: 3px solid var(--clr-1);
+    border: 3px solid var(--clr-3);
     height: 20vh;
     border-radius: var(--bd-rad-2);
-    box-shadow: var(--shadow-1);
-}
-.sect-1 .card img{
-    transition: .3s all ease;
-    width: 7vw;
-    height: 10vh;
-    object-fit: contain;
+    color: var(--clr-3);
 }
 .sect-1 .card svg{
     transition: .3s all ease;
-    width: 7vw;
-    height: 10vh;
+    width: 6vw;
+    padding: .2rem .15rem;
+    overflow: auto;
+    height: auto;
+    fill: var(--clr-3);
+    stroke: var(--clr-1);
+    stroke-width: .3px;
+    stroke-linejoin: round;
 }
 .sect-1 .card p{
     font-family: var(--font-1);
@@ -262,6 +254,16 @@ main{
     translate: 300px 0;
     rotate: -45deg;
     z-index: -1;
+}
+.sect-2 .contador{
+    font-family: var(--font-1);
+    font-size: .7rem;
+    background-color: var(--clr-3);
+    padding: .5rem 2rem;
+    border: 4px solid var(--clr-1);
+    border-radius: 1rem;
+    color: var(--clr-1);
+    margin-inline-start: 1rem;
 }
 .sect-2 .btns{
     display: flex;
@@ -367,11 +369,11 @@ main{
 }
 .estadisticas h1{
     background-color: var(--clr-1);
-        color: var(--clr2);
-        padding: .5rem 3.5rem;
-        border: 4px solid var(--clr2);
-        border-radius: 1rem;
-        letter-spacing: .1rem;
+    color: var(--clr2);
+    padding: .5rem 3.5rem;
+    border: 4px solid var(--clr2);
+    border-radius: 1rem;
+    letter-spacing: .1rem;
 }
 .estadisticas span{
     color: var(--clr-1);
@@ -406,8 +408,8 @@ main{
 .sect-3 .chat  .title{
     transition: .5s all ease;
     font-family: var(--font-1);
-    background-color: var(--clr-1);
-    color: var(--clr2);
+    background-color: var(--clr-3);
+    color: var(--clr-1);
     padding: .1rem;
     width: 10vw;
     border: 3px solid var(--clr-1);
