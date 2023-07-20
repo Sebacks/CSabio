@@ -63,6 +63,8 @@ header{
     background-color: var(--clr2);
     box-shadow: var(--shadow-1);
     grid-row: 1;
+    box-shadow: var(--shadow-2);
+    margin-block-end: .4rem;
 }
 header #logo-oscuro{
     background-repeat: no-repeat;
@@ -191,7 +193,6 @@ main{
     transition: 1s all ease;
     font-family: var(--font-1);
 }
-
 .sect-1 .card h1{
     font-family: var(--font-1);
     color: var(--clr2);
@@ -203,7 +204,9 @@ main{
     gap: .5rem;
     display: none;
     flex-direction: column;
-    color: var(--clr-1);
+    color: var(--clr2);
+    font-family: var(--font-1);
+    font-size: 1.2rem;
 }
 .sect-1 .card:hover{
     width: 20vw;
@@ -229,6 +232,10 @@ main{
     border-radius: 1rem;
     color: var(--clr-1);
     margin-inline-start: 1rem;
+    background-color: var(--clr-3 );
+}
+.sect-2 #canvas{
+    background-color:var(--clr2);
 }
 .sect-2 .btns{
     display: flex;
@@ -324,7 +331,8 @@ main{
     height: 4vh;
 }
 .ganancias{
-    width: 100%;
+    flex-direction: column;
+
 }
 .estadisticas{
     gap: .2rem;
@@ -436,6 +444,10 @@ main{
     border:3px solid var(--clr2);
     overflow: hidden;
 }
+.sect-3 .chat #msjsss{
+    background-color: var(--clr2);
+    color: var(--clr-1);
+}
 .sect-3 div:first-child img{
     width: 13vw;
 }
@@ -457,6 +469,14 @@ main{
 }
 #ganaPierde{
     color: var(--clr-1);
+}
+footer{
+    width: 100vw;
+    font-family: var(--font-1);
+    padding: 2.2rem;
+    padding-block-start: 1.8rem;
+    font-size: .8rem;
+    box-shadow: var(--shadow-2);
 }
 /* Responsive */
 @media (max-width:850px){
@@ -548,10 +568,6 @@ main{
 #btnsCV{
     border-radius: 10px;
 }
-#nuevasGraficas{
-    background-color: #fff;
-    border-radius: 10px;
-}
 .modal {
     display: none;
     position: fixed;
@@ -614,5 +630,8 @@ main{
     -webkit-animation-duration: 0.5s;
     animation-name: animarsuperior;
     animation-duration: 0.5s
+}
+#btnTutorial{
+    background-color: var(--clr-3);
 }
 

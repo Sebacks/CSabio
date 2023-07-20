@@ -65,7 +65,7 @@
                 <div class="contador flex" id="nuevasGraficas">
                     <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
                 </div>
-                <div id="canvas" style="width: 100vh; background-color: white; padding: 20px; border-radius: 10px;">
+                <div id="canvas" style="width: 100vh; padding: 20px; border-radius: 10px;">
                     <div class="stats" style="background-color: rgba(0, 0, 0, 0.842);">
                         <canvas id="stats" height="155%"></canvas>
                     </div>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div id="ganStat" class="flex">
-                            <div class="ganancias">
+                            <div class="ganancias flex">
                                 <div class="title2 flex">
                                     <span>Ganancia </span>
                                 </div>
@@ -126,8 +126,10 @@
                     </div>
                 </div>
             </section>
-            
         </main>
+        <footer class="flex">
+           <h1>Colegio Vocacional de Artes y Oficios - Contabilidad y Finanzas x Desarrollo Web </h1>
+        </footer>
     </div>
     <div id="ventanaModal" class="modal">
         <div class="contenido-modal">
@@ -969,6 +971,7 @@
         const clr1 = '#004aad';
         const clr2 = 'white';
         const clr3 = 'ffde59';
+        const clr1Oscuro = '#001d42'
         changeButton.addEventListener('click', () => {
             const computedStyle = getComputedStyle(document.documentElement);
             const clr_1 = computedStyle.getPropertyValue('--clr-1').trim();
@@ -981,29 +984,25 @@
             const ganaciasTexto = document.getElementById('ganaPierde')
             if(clr_1 == clr1)
             {
-                newValue='#001d42';
-                logoOscuro.style.display = 'flex'
+                newValue= clr1Oscuro;
                 sol.style.display = 'none'
-                logo.style.display = 'none'
                 luna.style.display = 'flex'
             }
-            else if(clr_1 == '#ebebeb'){
-                newValue='#000';
-                logoOscuro.style.display = 'none'
-                logo.style.display = 'flex'
+            else if(clr_1 == clr1Oscuro){
+                newValue=clr1;
                 sol.style.display = 'flex';
                 luna.style.display = 'none'
             }
-            if(clr2 == '#ebebeb')
+            if(clr_2 ==  clr2)
             {
                 if(ganaciasTexto.innerHTML == "Aún no hay ganancias")
-                    ganaciasTexto.style.color = '#fff'
-                newValue2 = '#000'
+                    ganaciasTexto.style.color = clr2
+                newValue2 = clr1
             }
-            else if(clr2 == '#000'){
+            else if(clr_2 == clr1){
                 if(ganaciasTexto.innerHTML == "Aún no hay ganancias")
-                    ganaciasTexto.style.color = 'black'
-                newValue2 ='#ebebeb';
+                    ganaciasTexto.style.color = clr2
+                newValue2 = clr3;
             }
             document.documentElement.style.setProperty('--clr-1', newValue);
             document.documentElement.style.setProperty('--clr2', newValue2);
