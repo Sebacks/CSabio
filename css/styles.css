@@ -154,28 +154,6 @@ main{
     border-radius: var(--bd-rad-1); 
     box-shadow: var(--shadow-1);   
 }
-.sect-1::before{
-    position: absolute;
-    content: 'a';
-    background-color: var(--clr-1);
-    width: 1000vw;
-    height: 20vh;
-    translate: 350px -300px;
-    rotate: 45deg;
-    z-index: -1;
-}
-.sect-1::after{
-    position: absolute;
-    content: 'a';
-    background-color: var(--clr2);
-    border: 5px solid var(--clr-1);
-    width: 1000vw;
-    height: 20vh;
-    translate: 350px 0;
-    rotate: -45deg;
-    z-index: -1;
-}
-
 .sect-1 .card{
     transition: .5s all ease;
     flex-direction: row;
@@ -238,27 +216,7 @@ main{
     gap: 1rem;
     border-radius: var(--bd-rad-1);
 }
-.sect-2::before{
-    position: absolute;
-    content: 'a';
-    background-color: var(--clr2);
-    border: 5px solid var(--clr-1);
-    width: 1000vw;
-    height: 20vh;
-    translate: 300px 600px;
-    rotate: 45deg;
-    z-index: -1;
-}
-.sect-2::after{
-    position: absolute;
-    content: 'a';
-    background-color: var(--clr-1);
-    width: 1000vw;
-    height: 20vh;
-    translate: 300px 0;
-    rotate: -45deg;
-    z-index: -1;
-}
+
 .sect-2 .btns{
     display: flex;
     gap: 2rem;
@@ -504,27 +462,7 @@ footer h1{
         height: 71vh;
         width: 32vw;
     }
-    .sect-1::before{
-        position: absolute;
-        content: 'a';
-        background-color: var(--clr-1);
-        width: 1000vw;
-        height: 20vh;
-        translate:200px -300px;
-        rotate: 45deg;
-        z-index: -1;
-    }
-    .sect-1::after{
-        position: absolute;
-        content: 'a';
-        background-color: var(--clr2);
-        border: 5px solid var(--clr-1);
-        width: 1000vw;
-        height: 20vh;
-        translate: 250px 0;
-        rotate: -45deg;
-        z-index: -1;
-    }
+
     .sect-1 .card:hover{
         translate:35px;
         width: 40vw;
