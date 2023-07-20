@@ -399,6 +399,37 @@
             MostrarCantidadAcciones();
             ActualizarCartera();
         }
+
+        //Audios
+        let musica = "assets/musicaF.mp3";
+        let logromus = "assets/Logro.mp3";
+        let noticiaL = "assets/noticialinda.mp3";
+        let noticiaF = "assets/noticiafea.mp3";
+
+        function Ejecutar()
+        {
+            const audio = new Audio(musica);
+            audio.play();
+        }
+
+        function LogroMusica()
+        {
+            const audio = new Audio(logromus);
+            audio.play();
+        }
+
+        function BadNews()
+        {
+            const audio = new Audio(noticiaF);
+            audio.play();
+        }
+
+        function GoodNews()
+        {
+            const audio = new Audio(noticiaL);
+            audio.play();
+        }
+
         var valor
         var ganaPierde = document.getElementById("ganaPierde")
         function PerdidaGanancia()
@@ -991,7 +1022,7 @@
             secInterval=setInterval(()=>{
                 i-=1
                 document.getElementById("coolDown").innerHTML=i
-                    if(cartera>=10000&&!unlockedLogro1){
+                    if(cartera>=2499&&!unlockedLogro1){
                         Swal.fire({
                             title:"Logro desbloqueado, un inicio",
                             icon: 'success'
@@ -999,7 +1030,7 @@
                         
                         unlockedLogro1=true;
                     }
-                    if(cartera>=25000&&!unlockedLogro2){
+                    if(cartera>=2999&&!unlockedLogro2){
                         Swal.fire({
                             title:"Logro desbloqueado, pequeño capital",
                             icon: 'success'
@@ -1007,14 +1038,14 @@
                         
                         unlockedLogro2=true;
                     }
-                    if(cartera>=100000&&!unlockedLogro3){
+                    if(cartera>=3999&&!unlockedLogro3){
                         Swal.fire({
                             title:"Logro desbloqueado, inversionista creciente",
                             icon:'success'
                         })
                         unlockedLogro3=true;
                     }
-                    if(cartera>=1000000&&!unlockedLogro4){
+                    if(cartera>=5000&&!unlockedLogro4){
                         Swal.fire({
                             title:"Logro desbloqueado, la leyenda",
                             icon: 'success'
