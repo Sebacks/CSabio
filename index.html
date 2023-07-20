@@ -23,13 +23,6 @@
                 <img id="logo" src="assets/logo-csabio.png">
                 <img id="logo-oscuro" src="assets/logo-csabio-blanco.png" alt="">
                 <h1>CARTERA : <span id="cartera">$$$</span></h1>
-                <h1>Ganancias Totales : <span id="totalGains">0</span></h1>
-                <h2><span id="contadorTiempo">tiempo</span></h2>
-            </div>
-            <div class="contador flex">
-                <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
-                <button id="btnTutorial">Iniciar Tutorial</button>
-                <button id="btnIniciar">Iniciar Juego</button>
             </div>
             <div class="logos flex">
                 <img src="./assets/logo-conta.png">
@@ -66,6 +59,9 @@
                 </div>
             </section>
             <section class="sect-2 flex">
+                <div class="contador flex">
+                    <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
+                </div>
                 <div class="stats" style="background-color: rgba(0, 0, 0, 0.842);">
                     <canvas id="stats" width="700vh" height="400px"></canvas>
                 </div>
@@ -75,7 +71,7 @@
                         <span>COMPRA</span>
                         <div class="cant">
                             <span>Cant:</span>
-                            <input min="0" id="cantInput" type="number">
+                            <input min="1" id="cantInput" type="number">
                         </div>
                         <svg class="check" id="check1" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                     </div>
@@ -84,7 +80,7 @@
                         <span>VENTA</span>
                         <div class="cant">
                             <span>Cant:</span>
-                            <input min="0" id="cantInput2" type="number">
+                            <input min="1" id="cantInput2" type="number">
                         </div>
                         <svg class="check2" id="check2" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                     </div>
@@ -108,6 +104,12 @@
                                 <span id="valorInicio"></span>
                                 <span id="ganaPierde">Aún no hay ganancias</span>
                             </div>
+                        </div>
+                        <div class="estadisticas flex">
+                            <h1>Estadisticas</h1>
+                            <span><span>Tiempo Jugado: <span id="contadorTiempo"></span></span></span>
+                            <span>Ganancias Totales: <span id="totalGains">0</span></span>
+                            <button id="btnIniciar">Iniciar Juego</button>
                         </div>
                     </div>
                     
@@ -409,11 +411,12 @@
                             ganaPierde.innerHTML="Ganarias: $"+valor
                             ganaPierde.style.color="green"
                         }
-                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: $"+ultimoValorAp
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorAp
                     }
                     else
                     {
                         document.getElementById("valorInicio").innerHTML=""
+                        ganaPierde.style.color = "#000"
                         document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
                     break
@@ -431,11 +434,12 @@
                             ganaPierde.innerHTML="Ganarias: $"+valor
                             ganaPierde.style.color="green"
                         }
-                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: $"+ultimoValorNi
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorNi
                     }
                     else
                     {
                         document.getElementById("valorInicio").innerHTML=""
+                        ganaPierde.style.color = "#000"
                         document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
                     break
@@ -453,11 +457,12 @@
                             ganaPierde.innerHTML="Ganarias: $"+valor
                             ganaPierde.style.color="green"
                         }
-                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: $"+ultimoValorGo
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorGo
                     }
                     else
                     {
                         document.getElementById("valorInicio").innerHTML=""
+                        ganaPierde.style.color = "#000"
                         document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
                     break
@@ -676,8 +681,15 @@
             if(wordIsPositive())
             {
                 switch(rn)
-                {
+                {   
                     case 1:
+                    Swal.fire({
+                            title:"Apple tiene su propio sistema GPT de AI",
+                            text:"Dicha AI llama la atencion de los medios",
+                            imageUrl: 'assets/AppleIa.jpeg',
+                            color:'black'
+                            
+                        })
                         wordNumber[0] = "Apple +$20";
                         valAccionApple=Math.round(valAccionApple+=20);
                         histAccionApple[histAccionApple.length]=valAccionApple
@@ -685,6 +697,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 2:
+                    Swal.fire({
+                        title:"Nike colabora con la nueva pelicula de Barbie ",
+                            imageUrl: 'assets/barbie.jpg',
+                            text:"La colaboracion provoca aumento en las acciones",
+                            color:'black'
+                        })
                         wordNumber[0] = "Nike +$20";
                         valAccionNike=Math.round(valAccionNike+=20);
                         histAccionNike[histAccionNike.length]=valAccionNike
@@ -692,6 +710,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 3:
+                    Swal.fire({
+                        title:"Google crea una nueva IA la cual se espera ser mejor que chat gtp",
+                        text:"Dicha noticia aumenta las acciones de la empresa",
+                            imageUrl: 'assets/googleIa.jpeg',
+                            color:'black'
+                        })
                         wordNumber[0] = "Google +$20";
                         valAccionGoogle=Math.round(valAccionGoogle+=20);
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
@@ -699,6 +723,13 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 4:
+                    Swal.fire({
+                        title:"Cristiano Ronaldo le regala el ultimo iphone a su hijo",
+                        text:"Esto aumenta las acciones de la empresa",
+                            imageUrl: 'assets/iphone14promax',
+                            color:'black'
+                            
+                        })
                         wordNumber[0] = "Apple +$50";
                         valAccionApple=Math.round(valAccionApple+=50);
                         histAccionApple[histAccionApple.length]=valAccionApple
@@ -706,6 +737,13 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 5:
+                    Swal.fire({
+                        title:"Nuevos nike Dunk Low Premium cuestan menos de 120 Euros",
+                            text:"Esto lo convierte en los zapatos más vendidos este mes de la compañia",
+                            imageUrl: 'assets/nikedownlow.jpeg',
+                            color:'black'
+                            
+                        })
                         wordNumber[0] = "Nike +$50";
                         valAccionNike=Math.round(valAccionNike+=50);
                         histAccionNike[histAccionNike.length]=valAccionNike
@@ -713,6 +751,13 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 6:
+                    Swal.fire({
+                        title:"Google incluye el uso de datos publicos para entrenar a Bard",
+                        text:"Esto genera un impacto postivo en la IA   ",
+                            imageUrl: 'assets/Google.jpeg',
+                            color:'black'
+                            
+                        })
                         wordNumber[0] = "Google +$50";
                         valAccionGoogle=Math.round(valAccionGoogle+=50);
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
@@ -720,6 +765,13 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 7:
+                    Swal.fire({
+                        title:"Aumenta el bitcoin en un 0.2%",
+                        text:"Esto provoca un aumento en todas las acciones del mundo",
+                            imageUrl: 'assets/bitcoin.jpeg',
+                            color:'black'
+                            
+                        })
                         wordNumber[0] = "Todas +$100";
                         valAccionApple=Math.round(valAccionApple+=100);
                         valAccionNike=Math.round(valAccionNike+=100);
@@ -731,6 +783,13 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     default:
+                    Swal.fire({
+                        title:"Explota el Iphone Pro Max 15 mientras carga",
+                        text:"Esto provoco una bajada en las acciones de apple",
+                            imageUrl: 'assets/Iphone.jpeg',
+                            color:'black'
+                            
+                        })
                         wordNumber[0] = "Cartera: +$20"
                         cartera = cartera+20;
                         gananciasTotales+=20;
@@ -749,6 +808,12 @@
                 switch (rn)
                 {
                     case 1:
+                        Swal.fire({
+                            title:"El iphone 13 fue un total fracaso!!",
+                            text:"Esto provoco una bajada en las acciones de apple!!",
+                            imageUrl: 'assets/Iphone13.jpeg',
+                            color:'black'
+                        })
                         wordNumber[0] = "Apple -$20";
                         result = valAccionApple-20
                         if(result<=0)
@@ -760,6 +825,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 2:
+                    Swal.fire({
+                        title:"Nike se apresura para resolver los problemas de suministros ",
+                            imageUrl: 'assets/nikeperdida.png',
+                            text:"Dicha perdida paran las producciones durante un día",
+                            color:'black'
+                        })
                         wordNumber[0] = "Nike -$20"
                         result = valAccionNike-20
                         if(result<=0)
@@ -771,6 +842,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 3:
+                    Swal.fire({
+                        title:"Fallida presentación de Bard",
+                            imageUrl: 'assets/IGoogle.jpeg',
+                            text:" la fallida presentación de Bard, el nuevo chatbot de inteligencia artificial de Google ",
+                            color:'black'
+                        })
                         wordNumber[0] = "Google -$20"
                         result = valAccionGoogle-20
                         if(result<=0)
@@ -782,6 +859,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 4:
+                    Swal.fire({
+                        title:"Juez prohibe la venta de Iphone y Ipad en Colombia",
+                            imageUrl: 'assets/applebad.jpeg',
+                            text:"Esto provoca perdidas millonarias para la compañia",
+                            color:'black'
+                        })
                         wordNumber[0] = "Apple -$40"
                         result = valAccionApple-40
                         if(result<=0)
@@ -793,6 +876,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 5:
+                    Swal.fire({
+                        title:"Nike sufre con la ruptura de la zapatilla de Zion Williamson en TV",
+                            imageUrl: 'assets/Nike suela.jpg',
+                            text:"Esto provoco que el jugador Zion Williamson",
+                            color:'black'
+                        })
                         wordNumber[0] = "Nike -$40"
                         result = valAccionNike-40
                         if(result<=0)
@@ -804,6 +893,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 6:
+                    Swal.fire({
+                        title:"El error del chatbot de google",
+                            imageUrl: 'assets/googlebad.jpg',
+                            text:"Esto provoca perdidas de $100.000 millones",
+                            color:'black'
+                        })
                         wordNumber[0] = "Google -$40"
                         result = valAccionGoogle-40
                         if(result<=0)
@@ -815,6 +910,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     case 7:
+                    Swal.fire({
+                        title:"Guerra de Ucrania paraliza el mercado ",
+                            imageUrl: 'assets/ucrania.jpeg',
+                            text:"Esto provoco una bajada en las acciones de las empresas   ",
+                            color:'black'
+                        })
                         wordNumber[0] = "Todas -$100"
                         result=valAccionApple-100
                         if(result<=0)
@@ -838,6 +939,12 @@
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
                         break
                     default:
+                    Swal.fire({
+                        title:"Explota el Iphone Pro Max 15 mientras carga",
+                            imageUrl: 'assets/Iphone.jpeg',
+                            text:"Esto provoco una bajada en las acciones de apple",
+                            color:'black'
+                        })
                         wordNumber[0] = "Cartera: -$20"
                         cartera-=20;
                         ActualizarCartera()
@@ -849,6 +956,7 @@
             }
         }
         const changeButton = document.getElementById('change-color');
+
         changeButton.addEventListener('click', () => {
             const computedStyle = getComputedStyle(document.documentElement);
             const clr_1 = computedStyle.getPropertyValue('--clr-1').trim();
@@ -858,11 +966,12 @@
             const sol = document.getElementById('sun');
             const luna = document.getElementById('moon');
             let newValue, newValue2;
+            const ganaciasTexto = document.getElementById('ganaPierde')
             if(clr_1 == '#000')
             {
                 newValue='#ebebeb';
                 logoOscuro.style.display = 'flex'
-                sol.style.display = 'none';
+                sol.style.display = 'none'
                 logo.style.display = 'none'
                 luna.style.display = 'flex'
             }
@@ -875,9 +984,14 @@
             }
             if(clr2 == '#ebebeb')
             {
+                
+                if(ganaciasTexto.innerHTML == "Aún no hay ganancias")
+                    ganaciasTexto.style.color = '#fff'
                 newValue2 = '#000'
             }
             else if(clr2 == '#000'){
+                if(ganaciasTexto.innerHTML == "Aún no hay ganancias")
+                    ganaciasTexto.style.color = 'black'
                 newValue2 ='#ebebeb';
             }
             document.documentElement.style.setProperty('--clr-1', newValue);
