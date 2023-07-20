@@ -95,8 +95,8 @@
         font-family: var(--font-1);
         font-size: .9rem;
     }
-    header .container #moon{
-        display: none;
+    header #change-color img{
+        width: .9vw;
     }
     .fondito{
         position: absolute;
@@ -287,7 +287,7 @@
     }
     .sect-2 .btns .btn:hover>.check2{
         display: flex;
-        fill: var(--clr-1);
+        fill: var(--clr-3);
         margin-inline-start: .9rem;
         scale: 2;
     }
