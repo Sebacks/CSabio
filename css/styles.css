@@ -601,7 +601,10 @@ main{
     padding: 25px;
     border-radius: 4px;
     background-color: var(--clr-1);
-    translate: 0 -330px;
+    translate: -400px -400px;
+}
+#cartDiv{
+    background-color: white;
 }
 .oscuro button{
     translate: 0 350px;

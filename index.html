@@ -25,7 +25,9 @@
             <div class="logo flex">
                 <img id="logo" src="./assets/logo-csabio.png">
                 <img id="logo-oscuro" src="./assets/logo-csabio-blanco.png">
-                <h1>CARTERA : <span id="cartera">$$$</span></h1>
+                <div id="cartDiv">
+                    <h1>CARTERA : <span id="cartera">$$$</span></h1>
+                </div>
             </div>
             <div class="logos flex">
                 <img src="./assets/logo-conta.png">
@@ -1103,7 +1105,7 @@
         function iniciarContador() {
             btnIniciar.style.display = "none";
             contadorTiempo.style.display="inline-block"
-            tiempoJuego = 2
+            tiempoJuego = 300
             contadores();
             habilitarBotones()
             function actualizarContador() {
@@ -1168,6 +1170,7 @@
         var acciVendiNikeT = document.getElementById("accVendiNike")
         var maxCarteraT = document.getElementById("carteraMaximo") 
         var gainsTotal = document.getElementById("gananciasTotales")
+        
         function mostrarModal(){
             modal.style.display="flex"
             acciVendiAppleT.innerHTML=acciVendiApple.toString()
@@ -1197,6 +1200,7 @@
         var canvas=document.getElementById("canvas")
         var msjsss=document.getElementById("msjsss")
         var ganStat=document.getElementById("ganStat")
+        var cartDiv = document.getElementById("cartDiv")
         btnTutorial.addEventListener("click",()=>{
             informacion.innerHTML="En esta parte puedes seleccionar a cual empresa comprarle acciones"
             sect1.style.zIndex=11
@@ -1233,12 +1237,18 @@
                         break
                     case 4:
                         msjsss.style.zIndex=1
-                        informacion.innerHTML=""
+                        informacion.innerHTML="Esta seccion sera tú mejor amiga, aqui podras ver informacion sobre tús posibles ganancias o perdidas, </br> y algunas estadisticas, como el tiempo restante y la ganancia total"
                         ganStat.style.zIndex=11
                         contadorTuto=5
                         break
                     case 5:
                         ganStat.style.zIndex=1
+                        informacion.innerHTML="Esta es tú cartera, empiezas con 2000 Bitcoin, solo tu sabrás con cuanto terminarás"
+                        cartDiv.style.zIndex=11
+                        contadorTuto=6
+                        break
+                    case 6:
+                        cartDiv.style.zIndex=1
                         oscuro.style.display='none'
                 }
         })
