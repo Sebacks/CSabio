@@ -17,14 +17,18 @@
             <div id="change-color" class="flex">
                 <svg id="sun" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
                 <svg id="moon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
-            </div>
+            </div>      
             <div class="logo flex">
                 <img id="logo" src="assets/logo-csabio.png">
+                <img id="logo-oscuro" src="assets/logo-csabio-blanco.png" alt="">
                 <h1>CARTERA : <span id="cartera">$$$</span></h1>
                 <h1>Ganancias Totales : <span id="totalGains">0</span></h1>
+                <h2><span id="contadorTiempo">tiempo</span></h2>
+                <button id="btnIniciar">Iniciar Juego</button>
             </div>
             <div class="contador flex">
                 <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
+                
             </div>
             <div class="logos flex">
                 <img src="./assets/logo-conta.png">
@@ -109,14 +113,30 @@
                     
                 </div>
             </section>
+            
         </main>
+    </div>
+    <div id="ventanaModal" class="modal">
+        <div class="contenido-modal">
+            <span class="cerrar">&times;</span>
+            <h2>Estadisticas de la partida</h2>
+            <h3>Vendiste <span id="accVendiApple">0</span> acciones de Apple</h3>
+            <h3>Vendiste <span id="accVendiNike">0</span> acciones de Nike</h3>
+            <h3>Vendiste <span id="accVendiGoogle">0</span> acciones de Google</h3>
+            <h3>Tus ganancias totales alcanzan los: <span id="gananciasTotales">0</span></h3>
+            <h3>Alcanzaste un maximo de <span id="carteraMaximo">0</span> bitcoin en la cartera</h3>
+        </div>
     </div>
     <footer class="flex">
         <h1>Contabilidad y Finanzas x Desarrollo Web - COVAO 2023</h1>
     </footer>
     <script>
-        
+        let acciVendiApple=0
+        let acciVendiNike=0
+        let acciVendiGoogle=0
+        var tiempoJuego = 100;
         let cartera = 2000;
+        let carteraMax = cartera;
         //valor acciones
         let valAccionApple=190;
         let valAccionNike=107;
@@ -144,20 +164,48 @@
         histAccionNike[0]=valAccionNike;
         histSelected=[];
         var etiquetasSelect=[]
+
+        var puedePresionarApple=false
+        var puedePresionarGoogle=false
+        var puedePresionarNike=false
+
         //Cambiar empresa
-        
         MostrarValorAcciones()
         const btnApple=document.getElementById('apple');
         btnApple.addEventListener('click', () => {
-            AppleSeleccionado();
+            if(puedePresionarApple)
+                AppleSeleccionado();
+            else
+            {
+                Swal.fire({
+                        title:"Inicie el juego para seleccionar una empresa",
+                        icon: 'error'
+                })
+            }
         });
         const btnNike=document.getElementById('nike')
         btnNike.addEventListener('click',()=>{
-            NikeSeleccionado();
+            if(puedePresionarNike)
+                NikeSeleccionado();
+            else
+            {
+                Swal.fire({
+                        title:"Inicie el juego para seleccionar una empresa",
+                        icon: 'error'
+                })
+            }
         })
         const btnGoogle=document.getElementById('google');
         btnGoogle.addEventListener('click', ()=>{
-            GoogleSeleccionado();
+            if(puedePresionarGoogle)
+                GoogleSeleccionado();
+            else
+            {
+                Swal.fire({
+                        title:"Inicie el juego para seleccionar una empresa",
+                        icon: 'error'
+                })
+            }
         })
 
         //Cambiar Color Seleccionado
@@ -227,6 +275,18 @@
             textNike.style.color = 'black';
             svgLogoGoogle.style.fill = 'white';
             textGoogle.style.color='white';
+        }
+        function NonSelected()
+        {
+            svgLogoApple.style.fill = 'black';
+            textApple.style.color = 'black';
+            svgLogoNike.style.fill='black';
+            textNike.style.color = 'black';
+            svgLogoGoogle.style.fill = 'black';
+            textGoogle.style.color='black';
+            btnApple.style.backgroundColor='white';
+            btnNike.style.backgroundColor='white';
+            btnGoogle.style.backgroundColor='white';
         }
         // Valor de las acciones
         function MostrarValorAcciones(){
@@ -350,7 +410,7 @@
                             ganaPierde.innerHTML="Ganarias: $"+valor
                             ganaPierde.style.color="green"
                         }
-                        document.getElementById("valorInicio").innerHTML="Costo accion: $"+ultimoValorAp
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorAp
                     }
                     else
                     {
@@ -373,7 +433,7 @@
                             ganaPierde.innerHTML="Ganarias: $"+valor
                             ganaPierde.style.color="green"
                         }
-                        document.getElementById("valorInicio").innerHTML="Costo accion: $"+ultimoValorNi
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorNi
                     }
                     else
                     {
@@ -396,7 +456,7 @@
                             ganaPierde.innerHTML="Ganarias: $"+valor
                             ganaPierde.style.color="green"
                         }
-                        document.getElementById("valorInicio").innerHTML="Costo accion: $"+ultimoValorGo
+                        document.getElementById("valorInicio").innerHTML="Compraste la accion por: "+ultimoValorGo
                     }
                     else
                     {
@@ -404,6 +464,10 @@
                         ganaPierde.style.color = "#000"
                         document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     }
+                    break
+                default:
+                    document.getElementById("valorInicio").innerHTML=""
+                    document.getElementById("ganaPierde").innerHTML="Aún no hay ganancias"
                     break
             }
         }
@@ -413,8 +477,11 @@
             {
                 if(acciCompApple>=cantAcciVender){
                     cartera+=(valAccionApple*cantAcciVender);
+                    if(cartera>=carteraMax)
+                        carteraMax=cartera
                     gananciasTotales+=(valAccionApple*cantAcciVender);
                     acciCompApple -=cantAcciVender;
+                    acciVendiApple+=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Apple",
                         icon: 'success'
@@ -436,8 +503,11 @@
             {
                 if(acciCompNike>=cantAcciVender){
                     cartera+=(valAccionNike*cantAcciVender);
+                    if(cartera>=carteraMax)
+                        carteraMax=cartera
                     gananciasTotales+=(valAccionNike*cantAcciVender);
                     acciCompNike -=cantAcciVender;
+                    acciVendiNike+=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido  "+cantAcciVender+" acciones de Nike",
                         icon: 'success'
@@ -460,8 +530,11 @@
             {
                 if(acciCompGoogle>=cantAcciVender){
                     cartera+=(valAccionGoogle*cantAcciVender);
+                    if(cartera>=carteraMax)
+                        carteraMax=cartera
                     gananciasTotales+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
+                    acciVendiGoogle+=cantAcciVender;
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Google",
                         icon: 'success'
@@ -547,8 +620,11 @@
             valAccionApple=histAccionApple[histAccionApple.length-1]
             MostrarValorAcciones(); 
         }
-        puedePresionar=true;
         const boton = document.getElementById("msj")
+        boton.disabled = true;
+        boton.innerHTML= "Deshabilitado"
+        boton.style.opacity="0.2"
+        puedePresionar = false;
         var conta = 10
         boton.addEventListener('click',() => {
             if (puedePresionar) 
@@ -662,6 +738,8 @@
                         wordNumber[0] = "Cartera: +$20"
                         cartera = cartera+20;
                         gananciasTotales+=20;
+                        if(cartera>=carteraMax)
+                            carteraMax=cartera
                         ActualizarCartera()
                         ActualizarGains()
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
@@ -781,6 +859,7 @@
             const clr_1 = computedStyle.getPropertyValue('--clr-1').trim();
             const clr2 = computedStyle.getPropertyValue('--clr2').trim();
             const logo = document.getElementById('logo');
+            const logoOscuro = document.getElementById('logo-oscuro');
             const sol = document.getElementById('sun');
             const luna = document.getElementById('moon');
             let newValue, newValue2;
@@ -788,15 +867,17 @@
             if(clr_1 == '#000')
             {
                 newValue='#ebebeb';
-                logo.src = '../assets/logo-csabio-blanco.png';
+                logoOscuro.style.display = 'flex'
                 sol.style.display = 'none';
+                logo.style.display = 'none'
                 luna.style.display = 'flex'
             }
             else if(clr_1 == '#ebebeb'){
                 newValue='#000';
+                logoOscuro.style.display = 'none'
+                logo.style.display = 'flex'
                 sol.style.display = 'flex';
                 luna.style.display = 'none'
-                logo.src = '../assets/logo-csabio.png';
             }
             if(clr2 == '#ebebeb')
             {
@@ -816,6 +897,8 @@
         ActualizarCartera();
         drawGraph();
         var i=Number
+        var coolInterval
+        var secInterval
         var unlockedLogro1=false
         var unlockedLogro2=false
         var unlockedLogro3=false
@@ -860,9 +943,11 @@
                         icon: 'success'
                         
                     })
+                    
                     unlockedLogro4=true;
                 }
         },1100)
     </script>
+    
 </body>
 </html>
