@@ -131,13 +131,13 @@
     </div>
     <div id="ventanaModal" class="modal">
         <div class="contenido-modal">
-            <span class="cerrar">&times;</span>
             <h2>Estadisticas de la partida</h2>
             <h3>Vendiste <span id="accVendiApple">0</span> acciones de Apple</h3>
             <h3>Vendiste <span id="accVendiNike">0</span> acciones de Nike</h3>
             <h3>Vendiste <span id="accVendiGoogle">0</span> acciones de Google</h3>
             <h3>Tus ganancias totales alcanzan los: <span id="gananciasTotales">0</span></h3>
             <h3>Alcanzaste un maximo de <span id="carteraMaximo">0</span> bitcoin en la cartera</h3>
+            <button id="btnSalirModal" class="btn">Salir</button>
         </div>
     </div>
     <script>
@@ -1102,7 +1102,7 @@
         function iniciarContador() {
             btnIniciar.style.display = "none";
             contadorTiempo.style.display="inline-block"
-            tiempoJuego = 300
+            tiempoJuego = 2
             contadores();
             habilitarBotones()
             function actualizarContador() {
@@ -1168,7 +1168,7 @@
         var maxCarteraT = document.getElementById("carteraMaximo") 
         var gainsTotal = document.getElementById("gananciasTotales")
         function mostrarModal(){
-            modal.style.display="block"
+            modal.style.display="flex"
             acciVendiAppleT.innerHTML=acciVendiApple.toString()
             acciVendiGoogleT.innerHTML=acciVendiGoogle.toString()
             acciVendiNikeT.innerHTML=acciVendiNike.toString()
@@ -1177,8 +1177,9 @@
         }
         deshabilitarBotones()
         contadorTiempo.style.display="none"
-        
-        span.addEventListener("click",() => {
+        var btnSalirModal = document.getElementById("btnSalirModal")
+
+        btnSalirModal.addEventListener("click",() => {
             modal.style.display = "none";
         });
         window.addEventListener("click",(event)=> {
@@ -1186,6 +1187,7 @@
                 modal.style.display = "none";
             }
         });
+
         var oscuro=document.getElementById("oscuros")
         var sect1=document.getElementById("section1")
         var btnsCV=document.getElementById("btnsCV")
