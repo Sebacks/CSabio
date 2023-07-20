@@ -9,6 +9,10 @@
     transition:.1s all ease;
     user-select: none;
 }
+.carta,.btn,
+button{
+    cursor: pointer;
+}
 
 :root{
     /* colores */
@@ -303,7 +307,7 @@ main{
     width: 15vw;
     justify-content: start;
 }
-.sect-3 .chat .title span{
+.sect-3 .chat #msjsss .title span{
     width: 10vw;
 }
 .title2{
@@ -335,12 +339,28 @@ main{
         border-radius: 1rem;
         letter-spacing: .1rem;
 }
+.tuto #btnTutorial{
+    margin-block-start: 1rem;
+    padding: .5rem 1.3rem;
+    transition: .4s all ease;
+    font-size: 1rem;
+    border: 3px solid var(--clr-1);
+    border-radius: 1rem;
+    color: var(--clr-1);
+    font-weight: bolder;
+    font-family: var(--font-1);
+    overflow: hidden;
+    background-color: var(--clr2);
+}
+.tuto #btnTutorial:hover{
+    scale: 1.1;
+}
 .estadisticas span{
     color: var(--clr-1);
     font-size: 1rem;
     font-weight: bold;
 }
-.estadisticas button{
+#btnIniciar{
     margin-block-start: 1rem;
     padding: .5rem 1.3rem;
     transition: .4s all ease;
@@ -365,7 +385,7 @@ main{
     color: var(--clr1);
     scale: 1.1;
 }
-.sect-3 .chat  .title{
+.sect-3 .chat #msjsss .title{
     transition: .5s all ease;
     font-family: var(--font-1);
     background-color: var(--clr-1);
@@ -377,14 +397,14 @@ main{
     gap: .2rem;
     height: 7vh;
 }
-.sect-3 .chat .title:hover{
+.sect-3 .chat #msjsss .title:hover{
     scale: 1.08;
 }
-.sect-3 .chat .title:hover > svg{
+.sect-3 .chat #msjsss .title:hover > svg{
     rotate: -20deg;
     scale: 1.4;
 }
-.sect-3 .chat .title svg{
+.sect-3 .chat #msjsss .title svg{
     fill: var(--clr2);
     scale: 1.3;
     rotate: 5deg;
@@ -524,6 +544,13 @@ main{
 }
 
 /*Cositas de Sebas*/
+#btnsCV{
+    border-radius: 10px;
+}
+#nuevasGraficas{
+    background-color: #fff;
+    border-radius: 10px;
+}
 .modal {
     display: none;
     position: fixed;
@@ -545,8 +572,37 @@ main{
     height: 100%;
     background-color: rgba(0,0,0,0.7);
     z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
-
+#msjsss{
+    background-color: white;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 10px;
+    gap: 1rem;
+}
+#ganStat{
+    background-color: white;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 10px;
+    gap: 1.4rem;
+}
+.oscuro span{
+    padding: 25px;
+    border-radius: 4px;
+    background-color: aqua;
+    translate: 0 -330px;
+}
+.oscuro button{
+    translate: 0 350px;
+}
+.oscuro button:hover{
+    transform: scale(1.1);
+}
 .contenido-modal {
     position: relative;
     background-color: white;
@@ -558,3 +614,4 @@ main{
     animation-name: animarsuperior;
     animation-duration: 0.5s
 }
+

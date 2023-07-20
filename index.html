@@ -12,7 +12,10 @@
     <title>CSabio</title>
 </head>
 <body>
-    <div class="oscuro" id="oscuros"></div>
+    <div class="oscuro" id="oscuros">
+        <span id="informacion"></span>
+        <button id="continuar" class="btn">continuar</button>
+    </div>
     <header class="flex">
         <div class="container flex">    
             <div id="change-color" class="flex">
@@ -23,7 +26,6 @@
                 <img id="logo" src="./assets/logo-csabio.png">
                 <img id="logo-oscuro" src="./assets/logo-csabio-blanco.png">
                 <h1>CARTERA : <span id="cartera">$$$</span></h1>
-                <button id="btnTutorial">Iniciar Tutorial</button>
             </div>
             <div class="logos flex">
                 <img src="./assets/logo-conta.png">
@@ -34,7 +36,7 @@
     <div class="container-main">
         <main>
             <section class="sect-1 flex" id="section1">
-                <div id="apple" class="card flex">
+                <div id="apple" class="card flex carta">
                     <svg id="logo-apple" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16"> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> </svg>
                     <div class="text" id="text-apple">
                         <span>APPLE</span>
@@ -42,7 +44,7 @@
                         <p >Acciones Compradas: <span id="acciCompApple">0</span></p>
                     </div>
                 </div>
-                <div id="nike" class="card flex">
+                <div id="nike" class="card flex carta">
                     <svg  id="logo-nike" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Nike</title><path d="M24 7.8L6.442 15.276c-1.456.616-2.679.925-3.668.925-1.12 0-1.933-.392-2.437-1.177-.317-.504-.41-1.143-.28-1.918.13-.775.476-1.6 1.036-2.478.467-.71 1.232-1.643 2.297-2.8a6.122 6.122 0 00-.784 1.848c-.28 1.195-.028 2.072.756 2.632.373.261.886.392 1.54.392.522 0 1.11-.084 1.764-.252L24 7.8z"/></svg>
                     <div class="text" id="text-nike">
                         <span>NIKE</span>
@@ -50,7 +52,7 @@
                         <p >Acciones Compradas: <span id="acciCompNike">0</span></p>
                     </div>
                 </div>
-                <div id="google" class="card flex">
+                <div id="google" class="card flex carta">
                     <svg  id="logo-google"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16"> <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/> </svg>
                     <div class="text" id="text-google">
                         <span>GOOGLE</span>
@@ -59,14 +61,16 @@
                     </div>
                 </div>
             </section>
-            <section class="sect-2 flex">
-                <div class="contador flex">
+            <section class="sect-2 flex" id="section2">
+                <div class="contador flex" id="nuevasGraficas">
                     <h2>Nuevas Gráficas: <span id="coolDown">10</span></h2>
                 </div>
-                <div class="stats" style="background-color: rgba(0, 0, 0, 0.842);">
-                    <canvas id="stats" width="700vh" height="400px"></canvas>
+                <div id="canvas" style="width: 100vh; background-color: white; padding: 20px; border-radius: 10px;">
+                    <div class="stats" style="background-color: rgba(0, 0, 0, 0.842);">
+                        <canvas id="stats" height="155%"></canvas>
+                    </div>
                 </div>
-                <div class="btns">
+                <div class="btns" id="btnsCV">
                     <div class="btn flex" id="comprar">
                         <svg class="responsive" xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
                         <span>COMPRA</span>
@@ -90,27 +94,34 @@
             <section class="sect-3 flex">
                 <div class="card">
                     <div class="chat flex">
-                        <div class="title flex" id="msj">
-                            <span>Mensajes</span>
-                        </div>
-                        <div class="message flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
-                            <span class="chat-text" id="data_chat">Gira el dado para ver un mensaje</span>
-                        </div>
-                        <div class="ganancias">
-                            <div class="title2 flex">
-                                <span>Ganancia </span>
+                        <div id="msjsss" class="flex">
+                            <div class="title flex carta" id="msj">
+                                <span>Mensajes</span>
                             </div>
-                            <div class="ganancias-text flex">
-                                <span id="valorInicio"></span>
-                                <span id="ganaPierde">Aún no hay ganancias</span>
+                            <div class="message flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                                <span class="chat-text" id="data_chat">Gira el dado para ver un mensaje</span>
                             </div>
                         </div>
-                        <div class="estadisticas flex">
-                            <h1>Estadisticas</h1>
-                            <span><span>Tiempo Restante: <span id="contadorTiempo"></span></span></span>
-                            <span>Ganancias Totales: <span id="totalGains">0</span></span>
-                            <button id="btnIniciar">Iniciar Juego</button>
+                        <div id="ganStat" class="flex">
+                            <div class="ganancias">
+                                <div class="title2 flex">
+                                    <span>Ganancia </span>
+                                </div>
+                                <div class="ganancias-text flex">
+                                    <span id="valorInicio"></span>
+                                    <span id="ganaPierde">Aún no hay ganancias</span>
+                                </div>
+                            </div>
+                            <div class="estadisticas flex">
+                                <h1>Estadisticas</h1>
+                                <span><span>Tiempo Restante: <span id="contadorTiempo"></span></span></span>
+                                <span>Ganancias Totales: <span id="totalGains">0</span></span>
+                                <button id="btnIniciar">Iniciar Juego</button>
+                            </div>
+                        </div>
+                        <div class="tuto">
+                            <button id="btnTutorial">Iniciar Tutorial</button>
                         </div>
                     </div>
                 </div>
@@ -130,6 +141,8 @@
         </div>
     </div>
     <script>
+        let contadorTuto=0
+
         let acciVendiApple=0
         let acciVendiNike=0
         let acciVendiGoogle=0
@@ -167,7 +180,7 @@
         var puedePresionarGoogle=false;
         var puedePresionarNike=false;
         var btnTutorial=document.getElementById("btnTutorial");
-
+        var continuar=document.getElementById("continuar");
         MostrarValorAcciones();
         const btnApple=document.getElementById('apple');
         btnApple.addEventListener('click', () => {
@@ -1173,13 +1186,59 @@
                 modal.style.display = "none";
             }
         });
+        var oscuro=document.getElementById("oscuros")
+        var sect1=document.getElementById("section1")
+        var btnsCV=document.getElementById("btnsCV")
+        var informacion=document.getElementById("informacion")
+        var nuevosGraficos=document.getElementById("nuevasGraficas")
+        var canvas=document.getElementById("canvas")
+        var msjsss=document.getElementById("msjsss")
+        var ganStat=document.getElementById("ganStat")
         btnTutorial.addEventListener("click",()=>{
-            
-            var oscuro=document.getElementById("oscuros")
-            var sect1=document.getElementById("section1")
+            informacion.innerHTML="En esta parte puedes seleccionar a cual empresa comprarle acciones"
             sect1.style.zIndex=11
-            oscuro.style.display="block"
+            oscuro.style.display="flex"
+            contadorTuto=0
         }); 
+        continuar.addEventListener("click",()=>{
+                switch(contadorTuto)
+                {
+                    case 0:
+                        sect1.style.zIndex=1
+                        informacion.innerHTML="Aqui puedes comprar y vender las acciones que hayas comprado, recuerda comprar barato y vender caro"
+                        btnsCV.style.backgroundColor="#fff"
+                        btnsCV.style.zIndex=11
+                        contadorTuto=1
+                        break
+                    case 1:
+                        btnsCV.style.zIndex=1
+                        informacion.innerHTML="Este contador te muestra cuanto tiempo falta para que se actualizen los valores de las acciones, aprovecha el </br> tiempo para planificar tu proximo movimiento"
+                        nuevosGraficos.style.zIndex=11
+                        contadorTuto=2
+                        break
+                    case 2:
+                        nuevosGraficos.style.zIndex=1
+                        informacion.innerHTML="Esta grafica muestra los movimientos de cada una de las acciones, selecciona una empresa diferente para ver los demas"
+                        canvas.style.zIndex=11
+                        contadorTuto=3
+                        break
+                    case 3:
+                        canvas.style.zIndex=1
+                        informacion.innerHTML="Actualmente esta deshabilitado, pero cuando empieces a jugar podras presionar para obtener una evento aleatorio </br> que afectara al valor de las acciones, y a lo mejor tambien de tu cartera"
+                        msjsss.style.zIndex=11
+                        contadorTuto=4
+                        break
+                    case 4:
+                        msjsss.style.zIndex=1
+                        informacion.innerHTML=""
+                        ganStat.style.zIndex=11
+                        contadorTuto=5
+                        break
+                    case 5:
+                        ganStat.style.zIndex=1
+                        oscuro.style.display='none'
+                }
+        })
     </script>
     
 </body>
