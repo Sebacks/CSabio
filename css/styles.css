@@ -467,6 +467,9 @@ main{
     font-family: var(--font-1);
     font-size: .9rem;
 }
+#ganaPierde{
+    color: var(--clr-1);
+}
 /* FOOTER STYLES */
 footer{
     background-color: var(--clr2);
