@@ -12,9 +12,8 @@
 
 :root{
     /* colores */
-    --clr-1:#aeaa2ee0;
-    --clr2: #060153f5;
-    --bk-1:#fdf507ca;
+    --clr-1:darkblue;
+    --clr2: #fff;
     /* fonts */
     --font-1: 'Quicksand', sans-serif;
     --ls-1: .3rem;
@@ -91,6 +90,15 @@ header .container .logo h1{
 header .container #moon{
     display: none;
 }
+.fondito{
+    position: absolute;
+    background-color: var(--clr-1);
+    width: 1000vw;
+    transform: rotate(45deg);
+    left: 0;
+    height: 50vh;
+    z-index: -1;
+}
 .sect-2 .contador{
     font-family: var(--font-1);
     font-size: 1rem;
@@ -156,7 +164,6 @@ main{
 }
 .sect-1::before{
     position: absolute;
-    content: 'a';
     background-color: var(--clr-1);
     width: 1000vw;
     height: 20vh;
@@ -166,7 +173,6 @@ main{
 }
 .sect-1::after{
     position: absolute;
-    content: 'a';
     background-color: var(--clr2);
     border: 5px solid var(--clr-1);
     width: 1000vw;
@@ -240,7 +246,6 @@ main{
 }
 .sect-2::before{
     position: absolute;
-    content: 'a';
     background-color: var(--clr2);
     border: 5px solid var(--clr-1);
     width: 1000vw;
@@ -251,7 +256,6 @@ main{
 }
 .sect-2::after{
     position: absolute;
-    content: 'a';
     background-color: var(--clr-1);
     width: 1000vw;
     height: 20vh;
@@ -328,7 +332,7 @@ main{
     flex-direction: column;
     align-items: start;
     background-color: var(--clr2);
-    height: 60vh;
+    height: 72vh;
     border-radius: var(--bd-rad-2);
     gap: .8rem;
     padding: .7rem .5rem;
@@ -336,6 +340,9 @@ main{
     margin-block: 1rem;
     width: 15vw;
     justify-content: start;
+}
+.sect-3 .chat .title span{
+    width: 10vw;
 }
 .title2{
     transition: .5s all ease;
@@ -353,50 +360,48 @@ main{
     width: 100%;
 }
 .estadisticas{
-    gap: .8rem;
+    gap: .2rem;
     flex-direction: column;
     font-family: var(--font-1);
     font-size: .8rem;
-    & h1{
-        background-color: var(--clr-1);
+}
+.estadisticas h1{
+    background-color: var(--clr-1);
         color: var(--clr2);
         padding: .5rem 3.5rem;
         border: 4px solid var(--clr2);
         border-radius: 1rem;
         letter-spacing: .1rem;
+}
+.estadisticas span{
+    color: var(--clr-1);
+    font-size: 1rem;
+    font-weight: bold;
+}
+.estadisticas button{
+    margin-block-start: 1rem;
+    padding: .5rem 1.3rem;
+    transition: .4s all ease;
+    font-size: 1rem;
+    border: 3px solid var(--clr-1);
+    border-radius: 1rem;
+    color: var(--clr2);
+    font-weight: bolder;
+    font-family: var(--font-1);
+    overflow: hidden;
+    background-color: var(--clr-1);
+    transition: .4s all ease;
+    animation: 3s alternate infinite latido;
+}
+@keyframes latido{
+    50%{
+        scale: 1.15;
     }
-    & span{
-        color: var(--clr-1);
-        font-size: 1.3rem;
-        font-weight: bold;
-    }
-    & button{
-        padding: .5rem 1.3rem;
-        transition: .4s all ease;
-        font-size: 1.3rem;
-        border: 3px solid var(--clr-1);
-        border-radius: 1rem;
-        color: var(--clr2);
-        font-weight: bolder;
-        font-family: var(--font-1);
-        overflow: hidden;
-        background-color: var(--clr-1);
-        &:hover{
-            background-color: var(--clr-2);
-            color: var(--clr1);
-            scale: 1.1;
-        }
-        &::after{
-            position: absolute;
-            display: none;
-            width: 1vw;
-            rotate: 45deg;
-            translate: -90px -90px ;
-            height: 30vh;
-            background-color: red;
-            content: '';
-        }
-    }
+}
+.estadisticas button:hover{
+    background-color: var(--clr-2);
+    color: var(--clr1);
+    scale: 1.1;
 }
 .sect-3 .chat  .title{
     transition: .5s all ease;
@@ -404,7 +409,7 @@ main{
     background-color: var(--clr-1);
     color: var(--clr2);
     padding: .1rem;
-    width: 100%;
+    width: 10vw;
     border: 3px solid var(--clr-1);
     border-radius: var(--bd-rad-1);
     gap: .2rem;
@@ -457,7 +462,7 @@ main{
     color: var(--clr2);
 }
 .ganancias-text{
-    width: 100%;
+    width: 10vw;
     padding-block: .7rem;
     flex-direction: column;
 
@@ -469,18 +474,6 @@ main{
 }
 #ganaPierde{
     color: var(--clr-1);
-}
-/* FOOTER STYLES */
-footer{
-    background-color: var(--clr2);
-    opacity: .9;
-    grid-row: 3;
-    box-shadow: var(--shadow-1);
-}
-footer h1{
-    font-family: var(--font-1);
-    color: var(--clr-1);
-    font-size: 1.3rem;
 }
 /* Responsive */
 @media (max-width:850px){
@@ -506,7 +499,6 @@ footer h1{
     }
     .sect-1::before{
         position: absolute;
-        content: 'a';
         background-color: var(--clr-1);
         width: 1000vw;
         height: 20vh;
@@ -516,7 +508,6 @@ footer h1{
     }
     .sect-1::after{
         position: absolute;
-        content: 'a';
         background-color: var(--clr2);
         border: 5px solid var(--clr-1);
         width: 1000vw;
@@ -562,7 +553,6 @@ footer h1{
     }
     .sect-2::before{
         position: absolute;
-        content: 'a';
         background-color: var(--clr2);
         border: 5px solid var(--clr-1);
         width: 1000vw;
@@ -573,7 +563,6 @@ footer h1{
     }
     .sect-2::after{
         position: absolute;
-        content: 'a';
         background-color: var(--clr-1);
         width: 1000vw;
         height: 20vh;
