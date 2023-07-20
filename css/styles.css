@@ -12,9 +12,9 @@
 
 :root{
     /* colores */
-    --clr-1:#000;
-    --clr2: #ebebeb;
-    --bk-1:#000;
+    --clr-1:#aeaa2ee0;
+    --clr2: #060153f5;
+    --bk-1:#fdf507ca;
     /* fonts */
     --font-1: 'Quicksand', sans-serif;
     --ls-1: .3rem;
@@ -29,7 +29,7 @@
 svg{fill:var(--clr-1);}
 .flex{
     display: flex;
-    align-items: center;
+    align-items: center !important;
     justify-content: center;
 }
 .btn{
@@ -50,6 +50,7 @@ body{
     grid-template-columns: 100vw;
     grid-template-rows:10vh 80vh 10vh;
     overflow: hidden;
+    opacity: 1;
 }
 
 /* HEADER STYLES */
@@ -90,9 +91,13 @@ header .container .logo h1{
 header .container #moon{
     display: none;
 }
-header .contador{
+.sect-2 .contador{
     font-family: var(--font-1);
-    font-size: .6rem;
+    font-size: 1rem;
+    background-color: var(--clr2);
+    padding: .5rem 2rem;
+    border: 4px solid var(--clr-1);
+    border-radius: 1rem;
     color: var(--clr-1);
     margin-inline-start: 1rem;
 }
@@ -346,6 +351,52 @@ main{
 }
 .ganancias{
     width: 100%;
+}
+.estadisticas{
+    gap: .8rem;
+    flex-direction: column;
+    font-family: var(--font-1);
+    font-size: .8rem;
+    & h1{
+        background-color: var(--clr-1);
+        color: var(--clr2);
+        padding: .5rem 3.5rem;
+        border: 4px solid var(--clr2);
+        border-radius: 1rem;
+        letter-spacing: .1rem;
+    }
+    & span{
+        color: var(--clr-1);
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    & button{
+        padding: .5rem 1.3rem;
+        transition: .4s all ease;
+        font-size: 1.3rem;
+        border: 3px solid var(--clr-1);
+        border-radius: 1rem;
+        color: var(--clr2);
+        font-weight: bolder;
+        font-family: var(--font-1);
+        overflow: hidden;
+        background-color: var(--clr-1);
+        &:hover{
+            background-color: var(--clr-2);
+            color: var(--clr1);
+            scale: 1.1;
+        }
+        &::after{
+            position: absolute;
+            display: none;
+            width: 1vw;
+            rotate: 45deg;
+            translate: -90px -90px ;
+            height: 30vh;
+            background-color: red;
+            content: '';
+        }
+    }
 }
 .sect-3 .chat  .title{
     transition: .5s all ease;
