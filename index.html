@@ -400,6 +400,37 @@
             MostrarCantidadAcciones();
             ActualizarCartera();
         }
+
+        //Audios
+        let musica = "assets/musicaF.mp3";
+        let logromus = "assets/Logro.mp3";
+        let noticiaL = "assets/noticialinda.mp3";
+        let noticiaF = "assets/noticiafea.mp3";
+
+        function Ejecutar()
+        {
+            const audio = new Audio(musica);
+            audio.play();
+        }
+
+        function LogroMusica()
+        {
+            const audio = new Audio(logromus);
+            audio.play();
+        }
+
+        function BadNews()
+        {
+            const audio = new Audio(noticiaF);
+            audio.play();
+        }
+
+        function GoodNews()
+        {
+            const audio = new Audio(noticiaL);
+            audio.play();
+        }
+
         var valor
         var ganaPierde = document.getElementById("ganaPierde")
         function PerdidaGanancia()
