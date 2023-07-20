@@ -146,7 +146,6 @@
     </div>
     <script>
         let contadorTuto=0
-
         let acciVendiApple=0
         let acciVendiNike=0
         let acciVendiGoogle=0
@@ -179,7 +178,6 @@
         histAccionNike[0]=valAccionNike;
         histSelected=[];
         var etiquetasSelect=[];
-
         var puedePresionarApple=false;
         var puedePresionarGoogle=false;
         var puedePresionarNike=false;
@@ -193,8 +191,8 @@
             else
             {
                 Swal.fire({
-                        title:"Inicie el juego para seleccionar una  empresa",
-                        icon: 'error'
+                    title:"Inicie el juego para seleccionar una empresa",
+                    icon: 'error'
                 })
             }
         });
@@ -222,59 +220,83 @@
                 })
             }
         })
-
         //Cambiar Color Seleccionado
         let svgLogoApple = document.getElementById('logo-apple');
         let textApple = document.getElementById('text-apple');
-
         let svgLogoNike = document.getElementById('logo-nike');
         let textNike = document.getElementById('text-nike');
-
         let svgLogoGoogle = document.getElementById('logo-google');
         let textGoogle = document.getElementById('text-google');
         let valGen;
         function AppleSeleccionado(){
+            CECApple();
             empresaSelect=0;
-            btnApple.style.background = clr3;
-            btnGoogle.style.background = clr1;
-            btnNike.style.background = clr1;
-            svgLogoApple.style.fill = clr1;
-            textApple.style.color = clr1
-
-            svgLogoGoogle.style.fill = clr3;
-            textGoogle.style.color = clr3;
-            svgLogoNike.style.fill = clr3;
-            textNike.style.color = clr3;
+            btnApple.style.backgroundColor='black';
+            btnNike.style.backgroundColor='white';
+            btnGoogle.style.backgroundColor='white';
+            histSelected=histAccionApple;
+            etiquetasSelect=histSelected;
             PerdidaGanancia()
             drawGraph()
         }
         function NikeSeleccionado(){
-            empresaSelect=1;    
-            btnApple.style.background = clr1;
-            btnGoogle.style.background = clr1;
-            btnNike.style.background = clr3;
-            svgLogoApple.style.fill = clr3;
-            textApple.style.color = clr3;
-            svgLogoGoogle.style.fill = clr3;
-            textGoogle.style.color = clr3;
-            svgLogoNike.style.fill = clr1;
-            textNike.style.color = clr1;
+            CECNike();
+            empresaSelect=1;
+            btnGoogle.style.backgroundColor='white';
+            btnApple.style.backgroundColor='white';
+            btnNike.style.backgroundColor='black';
+            histSelected=histAccionNike
+            etiquetasSelect=histSelected;
             PerdidaGanancia()
             drawGraph()
         }
-        function GoogleSeleccionado(){ 
+        function GoogleSeleccionado(){
+            CECGoogle(); 
             empresaSelect=2;
-            btnApple.style.background = clr1;
-            btnGoogle.style.background = clr3;
-            btnNike.style.background = clr1;
-            svgLogoApple.style.fill = clr3;
-            textApple.style.color = clr3;
-            svgLogoGoogle.style.fill = clr1;
-            textGoogle.style.color = clr1;
-            svgLogoNike.style.fill = clr3;
-            textNike.style.color = clr3;
+            btnApple.style.backgroundColor='white';
+            btnNike.style.backgroundColor='white';
+            btnGoogle.style.backgroundColor='black';
+            histSelected=histAccionGoogle
+            etiquetasSelect=histSelected;
             PerdidaGanancia()
             drawGraph()
+        }
+        //Cambiar Empresa Contenido
+        function CECApple(){
+            svgLogoApple.style.fill = 'white';
+            textApple.style.color = 'white';
+            svgLogoNike.style.fill='black';
+            textNike.style.color = 'black';
+            svgLogoGoogle.style.fill = 'black';
+            textGoogle.style.color='black';
+        }
+        function CECNike(){
+            svgLogoApple.style.fill = 'black';
+            textApple.style.color = 'black';
+            svgLogoNike.style.fill='white';
+            textNike.style.color = 'white';
+            svgLogoGoogle.style.fill = 'black';
+            textGoogle.style.color='black';
+        }
+        function CECGoogle(){
+            svgLogoApple.style.fill = 'black';
+            textApple.style.color = 'black';
+            svgLogoNike.style.fill='black';
+            textNike.style.color = 'black';
+            svgLogoGoogle.style.fill = 'white';
+            textGoogle.style.color='white';
+        }
+        function NonSelected()
+        {
+            svgLogoApple.style.fill = 'black';
+            textApple.style.color = 'black';
+            svgLogoNike.style.fill='black';
+            textNike.style.color = 'black';
+            svgLogoGoogle.style.fill = 'black';
+            textGoogle.style.color='black';
+            btnApple.style.backgroundColor='white';
+            btnNike.style.backgroundColor='white';
+            btnGoogle.style.backgroundColor='white';
         }
         // Valor de las acciones
         function MostrarValorAcciones(){
@@ -297,11 +319,11 @@
         //Actualizar Cartera
         function ActualizarCartera(){
             let carteraSpan=document.getElementById('cartera');
-            carteraSpan.innerText = `₿ ${cartera}`;
+            carteraSpan.innerText = `$${cartera}`;
         }
         function ActualizarGains(){
             let carteraSpan=document.getElementById('totalGains');
-            carteraSpan.innerText = `₿  ${gananciasTotales}`;
+            carteraSpan.innerText = `$${gananciasTotales}`;
         }
         //Compra de acciones
         const btnCheckCompra=document.getElementById('check1');
@@ -310,7 +332,6 @@
         }); 
         const btnCheckVenta=document.getElementById('check2');
         btnCheckVenta.addEventListener('click',() => {
-
             VenderAccion();
         });
         function ComprarAccion(){
@@ -552,11 +573,11 @@
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                labels:etiquetasSelect,         
+                labels:etiquetasSelect,
                 datasets: [{
                     label:"Valor de acciones",
                     data:histSelected,
-                    backgroundColor: "rgb(250, 250, 250,0.7)",
+                    backgroundColor: 'rgba(250,250,250,0.7)',
                     tension:0
                 }]
                 },
@@ -943,9 +964,9 @@
             }
         }
         const changeButton = document.getElementById('change-color');
-        const clr1 = '#001d42';
+        const clr1 = '#004aad';
         const clr2 = 'white';
-        const clr3 = '#ffde59';
+        const clr3 = 'ffde59';
         const clr1Oscuro = '#001d42'
         changeButton.addEventListener('click', () => {
             const computedStyle = getComputedStyle(document.documentElement);
@@ -1069,7 +1090,6 @@
             puedePresionarGoogle=false
             puedePresionarNike=false
         }
-
         const btnIniciar = document.getElementById("btnIniciar")
         var contadorTiempo = document.getElementById("contadorTiempo")
         btnIniciar.addEventListener('click',iniciarContador)
@@ -1077,7 +1097,7 @@
         function iniciarContador() {
             btnIniciar.style.display = "none";
             contadorTiempo.style.display="inline-block"
-            tiempoJuego = 300;
+            tiempoJuego = 300
             contadores();
             habilitarBotones()
             function actualizarContador() {
@@ -1093,7 +1113,6 @@
             }
             intervalo = setInterval(actualizarContador, 1000);
         }
-
         function reiniciarValores()
         {
             i=10
@@ -1154,7 +1173,6 @@
         deshabilitarBotones()
         contadorTiempo.style.display="none"
         var btnSalirModal = document.getElementById("btnSalirModal")
-
         btnSalirModal.addEventListener("click",() => {
             modal.style.display = "none";
         });
@@ -1163,10 +1181,6 @@
                 modal.style.display = "none";
             }
         });
-        let audioActivado = false;
-
-
-
         var oscuro=document.getElementById("oscuros")
         var sect1=document.getElementById("section1")
         var btnsCV=document.getElementById("btnsCV")
@@ -1228,5 +1242,6 @@
                 }
         })
     </script>
+    
 </body>
 </html>
