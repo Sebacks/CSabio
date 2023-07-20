@@ -98,6 +98,9 @@
     header #change-color img{
         width: .9vw;
     }
+    header #change-color:hover{
+        scale:2.1;
+    }
     .fondito{
         position: absolute;
         background-color: var(--clr-1);
@@ -621,20 +624,24 @@
         padding: 25px;
         border-radius: 4px;
         background-color: var(--clr-1);
-        translate: -400px -400px;
+        translate: -50px -300px;
     }
     #cartDiv{
         background-color: white;
     }
     .oscuro button{
-        translate: 0 350px;
+        box-shadow: var(--shadow-2);
+        translate: 0px 290px;
+        animation: 3s alternate infinite latido;
+        font-size: 1.1rem;
+        text-transform: uppercase;
     }
     .oscuro button:hover{
         transform: scale(1.1);
     }
     .contenido-modal {
         background-color: white ;
-        translate:0 -100px;
+        translate:0 -80px;
         display: flex;
         font-family: var(--font-1);
         font-size: 20px;
@@ -643,9 +650,9 @@
         justify-content: center;
         gap: 1rem;
         margin: auto;
-        padding: 40px;
-        width: 40%;
-        height: 40%;
+        padding: 2rem;
+        width: 50vw;
+        height: 70vh;
         border-radius: 10px;
         -webkit-animation-name: animarsuperior;
         -webkit-animation-duration: 0.5s;
