@@ -9,6 +9,39 @@
         transition:.1s all ease;
         user-select: none;
     }
+
+    .robot{
+        height: 100px; 
+        width: 100px; 
+        margin: 10px;
+        z-index: 11;
+    }
+    #robotContainer{
+        position: absolute; 
+        left: 22vw;
+        bottom: 80px;
+        flex-direction: column;
+    }
+    #dialogoContainer{
+        width: 300px;
+        height: 80px;
+        padding: 10px;
+        background-image: url(../assets/dialog.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        text-align: justify;
+    }
+    #robotModal{
+        margin-top: -100px;
+        translate: 0 120px;
+    }
+    #dialogo{
+        font-size: 8px;
+        font-family: 'Press Start 2P', cursive;
+        color: #86f1ff;
+        text-align: justify;
+    }
+
     .carta,.btn,
     button{
         cursor: pointer;

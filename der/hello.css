@@ -8,12 +8,12 @@
     width: 100px;
     height: 100px;
 
-    background-image: url("hello.png");/*imagen*/
+    background-image: url("img/hello.png");/*imagen*/
 
     /*animaciones*/
-    -ms-animation: robot 1s steps() infinite;
-    -webkit-animation: robot 1s steps(18, end) infinite;
-    -moz-animation: robot 1s steps(18, end) infinite;
-    -o-animation: robot 1s steps(18, end) infinite;
-    animation: robot 1s steps(18, end) infinite;
+    -ms-animation: robot 1s steps() 1;
+    -webkit-animation: robot 1s steps(18, end) 1;
+    -moz-animation: robot 1s steps(18, end) 1;
+    -o-animation: robot 1s steps(18, end) 1;
+    animation: robot 1s steps(18, end) 1;
 }

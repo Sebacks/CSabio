@@ -7,9 +7,13 @@
     <link rel="shortcut icon" href="./assets/zyro-image.png">
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./der/base.css" id="linkRobot">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/feca64167c.js" crossorigin="anonymous"></script>
     <link href="https://fonts.cdnfonts.com/css/crowden" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>CSabio</title>
 </head>
 <body>
@@ -72,7 +76,14 @@
                         <canvas id="stats" height="155%"></canvas>
                     </div>
                 </div>
+                <div id="robotContainer" class="flex">
+                    <div id="dialogoContainer">
+                        <span id="dialogo"></span>
+                    </div>
+                    <div class="robot"></div>
+                </div>
                 <div class="btns" id="btnsCV">
+                    
                     <div class="btn flex" id="comprar">
                         <svg class="responsive" xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
                         <span>COMPRA</span>
@@ -139,6 +150,7 @@
             <h3>Vendiste <span id="accVendiGoogle">0</span> acciones de Google</h3>
             <h3>Tus ganancias totales alcanzan los: <span id="gananciasTotales">0</span> Bitcoin</h3>
             <h3>Estuvo increible!! Disfruta al maximo esta Feria Vocacional 2023</h3>
+            <div class="robot" id="robotModal"></div>
             <button id="btnSalirModal" class="btn">Salir</button>
         </div>
     </div>
@@ -146,8 +158,8 @@
         <div class="contenido-modal">
             <h2>I n s t r u c c i o n e s!</h2>
             <p>Tendras 500 bitcoins para realizar las compras de las acciones las 3 siguientes empresas: 
-                Nike,Apple y Google pordras comprar las acciones de dichas empresas en un tiempo determinado de 3 minutos 
-                luego de esto te saldra un registro de tus ventas asi como las ganancias obtenidas.
+                Nike, Apple y Google pordras comprar las acciones de dichas empresas en un tiempo determinado de 3 minutos 
+                luego de esto te saldra un registro de tus ventas asi como las ganancias obtenidas, intenta optener muchos más bitcoins de con los que empezaste.
             </p>
             <button id="btnSalirModalTuto" class="btn">Iniciar</button>
         </div>
@@ -191,7 +203,12 @@
         var puedePresionarNike=false;
         var btnTutorial=document.getElementById("btnTutorial");
         var continuar=document.getElementById("continuar");
-        
+        var dialogoContainer= document.getElementById("dialogoContainer")
+        var ventanaModal= document.getElementById("ventanaModal")
+        let link = document.getElementById('linkRobot');
+        ventanaModal.style.display = "block"
+
+        dialogoContainer.style.opacity=0
         MostrarValorAcciones();
         const btnApple=document.getElementById('apple');
         btnApple.addEventListener('click', () => {
@@ -548,7 +565,7 @@
                         frase="Lo estas haciendo bien"
                         break
                     default:
-                        frase="placeholder"
+                        frase="¡Felicidades! Has tomado una decisión financiera inteligente."
                         break
                 }
             }
@@ -563,21 +580,29 @@
                         frase="No dejes que este tropiezo te detenga"
                         break
                     case 3:
-                        frase="placeholder"
+                        frase="¡No te preocupes! Incluso los mejores aveces fallan"
                         break
                     case 4:
-                        frase="placeholder"
+                        frase="Las fluctuaciones del mercado son normales."
                         break
                     case 5:
-                        frase="placeholder"
+                        frase="No dejes que una pérdida momentánea te desanime."
                         break
                     default:
-                        frase="placeholder"
+                        frase="No te preocupes, a la próxima te saldra mejor"
                         break
-
                 }
             }
             return frase
+        }
+        function ponerTexto(positiveWord)
+        {
+            var dialogo = document.getElementById("dialogo")
+            dialogoContainer.style.opacity=1
+            setTimeout(()=>{
+                dialogoContainer.style.opacity=0
+            },5000)
+            dialogo.innerHTML=FrasesAleatoriasRobot(positiveWord)
         }
         function VenderAccion(){
             cantAcciVender = parseInt(document.getElementById('cantInput2').value);
@@ -592,11 +617,13 @@
                     acciVendiApple+=cantAcciVender;
                     if(valAccionApple-ultimoValorAp>=1)
                     {
-
+                        feli()
+                        ponerTexto(true)
                     }
                     if(valAccionApple-ultimoValorAp<=1)
                     {
-                        
+                        troste()
+                        ponerTexto(false)
                     }
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Apple",
@@ -626,11 +653,13 @@
                     acciVendiNike+=cantAcciVender;
                     if(valAccionApple-ultimoValorAp>=1)
                     {
-
+                        feli()
+                        ponerTexto(true)
                     }
                     if(valAccionApple-ultimoValorAp<=1)
                     {
-                        
+                        troste()
+                        ponerTexto(false)
                     }
                     Swal.fire({
                         title:"Se han vendido  "+cantAcciVender+" acciones de Nike",
@@ -661,11 +690,13 @@
                     acciVendiGoogle+=cantAcciVender;
                     if(valAccionApple-ultimoValorAp>=1)
                     {
-
+                        feli()
+                        ponerTexto(true)
                     }
                     if(valAccionApple-ultimoValorAp<=1)
                     {
-                        
+                        troste()
+                        ponerTexto(false)
                     }
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Google",
@@ -1148,10 +1179,6 @@
                 if(cartera<=0&&acciCompApple<=0&&acciCompGoogle<=0&&acciCompNike<=0){
                     pararJuego()
                 }
-                else
-                {
-
-                }
                 i-=1
                 document.getElementById("coolDown").innerHTML=i
                     if(cartera>=2499&&!unlockedLogro1){
@@ -1232,7 +1259,7 @@
             btnIniciar.style.display = "none";
             tutoModal.style.display="block"
             contadorTiempo.style.display="inline-block"
-            tiempoJuego = 40;
+            tiempoJuego = 180;
             contadores();
             habilitarBotones()
             audioSonando=true;
@@ -1281,15 +1308,18 @@
         var span = document.getElementsByClassName("cerrar")[0];
         var modal = document.getElementById("ventanaModal");
         var estadoJugador = document.getElementById("estadoJugador");
+        var robotModal = document.getElementById("robotModal")
         function estadoJuga(){
             if(cartera<500){
                 estadoJugador.innerHTML="Perdiste"
                 estadoJugador.style.color="red"
+                link.setAttribute('href',`./${ladoRobot}/confundido.css`);
             }
-            else if(cartera>=500)
+            else if(cartera>500)
             {
                 estadoJugador.innerHTML="¡Ganaste!"
                 estadoJugador.style.color="green"
+                link.setAttribute('href',`./${ladoRobot}/felis.css`);
             }
         }
         function pararJuego() 
@@ -1395,6 +1425,42 @@
                         oscuro.style.display='none'
                 }
         })
+
+        /*ROBOT*/
+        //!variable que representa el lado del robot. 1-mira hacia derecha, 2-mira hacia izquierda
+        let ladoRobot="der";
+        //!temporizador para teleport (ahorita está ajustado a 15s)
+        let temporizador = setInterval(tp,15000);
+        //!variable que almacena el link en el head que referencia a las animaciones
+        
+        //*IF PARA FELIS
+        function feli(){
+            //cambia la animación
+            link.setAttribute('href',`./${ladoRobot}/felis.css`);
+            clearInterval(temporizador);
+            //llama a "devolver a base después de 5s"
+            setInterval(devolverABase, 5000);
+        }
+        //*IF PARA ASUSTADO
+        function troste(){
+            //cambia la animación
+            link.setAttribute('href',`./${ladoRobot}/sorprendido.css`);
+            //reinicia el temporizador
+            clearInterval(temporizador);
+            //llama a "devolver a base después de 5s"
+            setInterval(devolverABase, 5000);
+        }
+        //metodo que devuelve el robot a su animación base
+        function devolverABase()
+        {
+            link.setAttribute('href',`./${ladoRobot}/base.css`);
+            //reinicia el temporizador
+            clearInterval(temporizador);
+        }
+        function tp()
+        {
+            
+        }
     </script>
     
 </body>

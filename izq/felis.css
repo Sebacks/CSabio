@@ -8,7 +8,7 @@
     width: 100px;
     height: 100px;
 
-    background-image: url("felis.png");/*imagen*/
+    background-image: url("img/felis.png");/*imagen*/
 
     /*animaciones*/
     -ms-animation: robot .5s steps() infinite;

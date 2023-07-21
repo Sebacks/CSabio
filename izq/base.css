@@ -8,7 +8,7 @@
     width: 100px;
     height: 100px;
 
-    background-image: url("sorprendido.png");/*imagen*/
+    background-image: url("img/base.png");/*imagen*/
 
     /*animaciones*/
     -ms-animation: robot .5s steps() infinite;
