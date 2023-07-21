@@ -131,6 +131,8 @@
                                 <span><span>Tiempo Restante: <span id="contadorTiempo"></span></span></span>
                                 <span>Ganancias Totales: <span id="totalGains">0</span></span>
                                 <button id="btnIniciar">Iniciar Juego</button>
+<div class=tuyo>
+<button id="btnIniciarTuto">Iniciar Tutorial</button>
                             </div>
                         </div>
                     </div>
@@ -165,6 +167,11 @@
         </div>
     </div>
     <script>
+var btnIniciarTuto = document.getElementById("btnIniciarTuto")
+btnIniciarTuto.addEventListener("click",()=>{
+var tutorialUwU=document.getElementById("oscuros")
+tutorialUwU.style.zIndex=999
+})
         let contadorTuto=0
         let acciVendiApple=0
         let acciVendiNike=0
