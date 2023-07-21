@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/feca64167c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.cdnfonts.com/css/crowden" rel="stylesheet">
     <title>CSabio</title>
 </head>
 <body>
@@ -121,9 +122,6 @@
                                 <button id="btnIniciar">Iniciar Juego</button>
                             </div>
                         </div>
-                        <div class="tuto">
-                            <button id="btnTutorial">Iniciar Tutorial</button>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -134,13 +132,24 @@
     </div>
     <div id="ventanaModal" class="modal">
         <div class="contenido-modal">
+            <h1 id="estadoJugador"></h1>
             <h2>Estadisticas de la partida</h2>
             <h3>Vendiste <span id="accVendiApple">0</span> acciones de Apple</h3>
             <h3>Vendiste <span id="accVendiNike">0</span> acciones de Nike</h3>
             <h3>Vendiste <span id="accVendiGoogle">0</span> acciones de Google</h3>
             <h3>Tus ganancias totales alcanzan los: <span id="gananciasTotales">0</span></h3>
-            <h3>Alcanzaste un maximo de <span id="carteraMaximo">0</span> bitcoin en la cartera</h3>
+            <h3>Estuvo increible!! Disfruta al maximo esta Feria Vocacional 2023</h3>
             <button id="btnSalirModal" class="btn">Salir</button>
+        </div>
+    </div>
+    <div id="ventanaModalTuto" class="modal">
+        <div class="contenido-modal">
+            <h2>I n s t r u c c i o n e s!</h2>
+            <p>Tendras 500 bitcoins para realizar las compras de las acciones las 3 siguientes empresas: 
+                Nike,Apple y Google pordras comprar las acciones de dichas empresas en un tiempo determinado de 3 minutos 
+                luego de esto te saldra un registro de tus ventas asi como las ganancias obtenidas.
+            </p>
+            <button id="btnSalirModalTuto" class="btn">Iniciar</button>
         </div>
     </div>
     <script>
@@ -149,7 +158,7 @@
         let acciVendiNike=0
         let acciVendiGoogle=0
         var tiempoJuego = 100;
-        let cartera = 2000;
+        let cartera = 500;
         let carteraMax = cartera;
         //valor acciones
         let valAccionApple=190;
@@ -182,6 +191,7 @@
         var puedePresionarNike=false;
         var btnTutorial=document.getElementById("btnTutorial");
         var continuar=document.getElementById("continuar");
+        
         MostrarValorAcciones();
         const btnApple=document.getElementById('apple');
         btnApple.addEventListener('click', () => {
@@ -219,6 +229,8 @@
                 })
             }
         })
+
+
         //Cambiar Color Seleccionado
         let svgLogoApple = document.getElementById('logo-apple');
         let textApple = document.getElementById('text-apple');
@@ -405,28 +417,28 @@
         let logromus = "assets/Logro.mp3";
         let noticiaL = "assets/noticialinda.mp3";
         let noticiaF = "assets/noticiafea.mp3";
-
+        let audio;
         function Ejecutar()
         {
-            const audio = new Audio(musica);
+            audio = new Audio(musica);
             audio.play();
         }
 
         function LogroMusica()
         {
-            const audio = new Audio(logromus);
+            audio = new Audio(logromus);
             audio.play();
         }
 
         function BadNews()
         {
-            const audio = new Audio(noticiaF);
+             audio = new Audio(noticiaF);
             audio.play();
         }
 
         function GoodNews()
         {
-            const audio = new Audio(noticiaL);
+             audio = new Audio(noticiaL);
             audio.play();
         }
 
@@ -607,7 +619,7 @@
                 datasets: [{
                     label:"Valor de acciones",
                     data:histSelected,
-                    backgroundColor: 'rgba(250,250,250,0.7)',
+                    backgroundColor:"#fff",
                     tension:0
                 }]
                 },
@@ -645,8 +657,9 @@
         }
         function valAleatorio()
         {
-            histAccionGoogle[histAccionGoogle.length]=Math.floor(Math.random()*200)
-            histAccionApple[histAccionApple.length]=Math.floor(Math.random()*200)
+
+            histAccionGoogle[histAccionNike.length]=Math.floor(Math.random()*200)
+            histAccionApple[histAccionNike.length]=Math.floor(Math.random()*200)
             histAccionNike[histAccionNike.length]=Math.floor(Math.random()*200)
             if(histAccionApple[histAccionApple.length-1]<=20)
                 histAccionApple[histAccionApple.length-1]=30
@@ -729,6 +742,7 @@
                             
                         })
                         wordNumber[0] = "Apple +$20";
+                        GoodNews()
                         valAccionApple=Math.round(valAccionApple+=20);
                         histAccionApple[histAccionApple.length]=valAccionApple
                         drawGraph();
@@ -742,6 +756,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Nike +$20";
+                        GoodNews()
                         valAccionNike=Math.round(valAccionNike+=20);
                         histAccionNike[histAccionNike.length]=valAccionNike
                         drawGraph();
@@ -755,6 +770,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Google +$20";
+                        GoodNews()
                         valAccionGoogle=Math.round(valAccionGoogle+=20);
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
                         drawGraph();
@@ -764,11 +780,12 @@
                     Swal.fire({
                         title:"Cristiano Ronaldo le regala el ultimo iphone a su hijo",
                         text:"Esto aumenta las acciones de la empresa",
-                            imageUrl: 'assets/iphone14promax',
+                            imageUrl: 'assets/iphone14promax.jpeg',
                             color:'black'
                             
                         })
                         wordNumber[0] = "Apple +$50";
+                        GoodNews()
                         valAccionApple=Math.round(valAccionApple+=50);
                         histAccionApple[histAccionApple.length]=valAccionApple
                         drawGraph();
@@ -783,6 +800,7 @@
                             
                         })
                         wordNumber[0] = "Nike +$50";
+                        GoodNews()
                         valAccionNike=Math.round(valAccionNike+=50);
                         histAccionNike[histAccionNike.length]=valAccionNike
                         drawGraph();
@@ -797,6 +815,7 @@
                             
                         })
                         wordNumber[0] = "Google +$50";
+                        GoodNews()
                         valAccionGoogle=Math.round(valAccionGoogle+=50);
                         histAccionGoogle[histAccionNike.length]=valAccionGoogle
                         drawGraph();
@@ -811,6 +830,7 @@
                             
                         })
                         wordNumber[0] = "Todas +$100";
+                        GoodNews()
                         valAccionApple=Math.round(valAccionApple+=100);
                         valAccionNike=Math.round(valAccionNike+=100);
                         valAccionGoogle=Math.round(valAccionGoogle+=100);
@@ -822,13 +842,14 @@
                         break
                     default:
                     Swal.fire({
-                        title:"Explota el Iphone Pro Max 15 mientras carga",
-                        text:"Esto provoco una bajada en las acciones de apple",
+                        title:"Subidon",
+                        text:"Esto provoco que se agregaran 20 bitcoins a la cartera",
                             imageUrl: 'assets/Iphone.jpeg',
                             color:'black'
                             
                         })
                         wordNumber[0] = "Cartera: +$20"
+                        GoodNews()
                         cartera = cartera+20;
                         gananciasTotales+=20;
                         if(cartera>=carteraMax)
@@ -853,6 +874,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Apple -$20";
+                        BadNews()
                         result = valAccionApple-20
                         if(result<=0)
                             valAccionApple=20
@@ -870,6 +892,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Nike -$20"
+                        BadNews()
                         result = valAccionNike-20
                         if(result<=0)
                             valAccionNike=20
@@ -882,11 +905,12 @@
                     case 3:
                     Swal.fire({
                         title:"Fallida presentación de Bard",
-                            imageUrl: 'assets/IGoogle.jpeg',
+                            imageUrl: 'assets/GoogleIA.jpeg',
                             text:" la fallida presentación de Bard, el nuevo chatbot de inteligencia artificial de Google ",
                             color:'black'
                         })
                         wordNumber[0] = "Google -$20"
+                        BadNews()
                         result = valAccionGoogle-20
                         if(result<=0)
                             valAccionGoogle=20
@@ -904,6 +928,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Apple -$40"
+                        BadNews()
                         result = valAccionApple-40
                         if(result<=0)
                             valAccionApple=50
@@ -938,6 +963,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Google -$40"
+                        BadNews()
                         result = valAccionGoogle-40
                         if(result<=0)
                             valAccionGoogle=50
@@ -955,6 +981,7 @@
                             color:'black'
                         })
                         wordNumber[0] = "Todas -$100"
+                        BadNews()
                         result=valAccionApple-100
                         if(result<=0)
                             valAccionApple=10
@@ -978,12 +1005,13 @@
                         break
                     default:
                     Swal.fire({
-                        title:"Explota el Iphone Pro Max 15 mientras carga",
+                        title:"Bajon",
                             imageUrl: 'assets/Iphone.jpeg',
-                            text:"Esto provoco una bajada en las acciones de apple",
+                            text:"Esto provoco que se te bajaran 20 bitcoins de la cartera",
                             color:'black'
                         })
                         wordNumber[0] = "Cartera: -$20"
+                        BadNews()
                         cartera-=20;
                         ActualizarCartera()
                         wordNumber[1] = randomNumber(isPositive, 0, 0)
@@ -993,6 +1021,19 @@
                 return wordNumber[0]
             }
         }
+        function actualizarGrafica(valorNuevo, hist=[]){
+            if (hist.length>=10)
+            {
+                hist.splice(0,1)
+                hist[hist.length]=valorNuevo
+            }
+            else
+            {
+                hist[hist.length+1]=valorNuevo
+            }
+            return hist
+        }
+        let audioSonando = false;
         const changeButton = document.getElementById('change-color');
         const clr1 = '#004aad';
         const clr2 = 'white';
@@ -1000,6 +1041,12 @@
         const clr1Oscuro = '#001d42'
         changeButton.addEventListener('click', () => {
             // metodo activar musica
+            if(audioSonando){
+                audio.pause();
+                audioSonando=false
+            }else{
+                audio.play();
+            }
         });
         ActualizarCartera();
         drawGraph();
@@ -1020,6 +1067,13 @@
                 i=10
             },10000)
             secInterval=setInterval(()=>{
+                if(cartera<=0){
+                    pararJuego()
+                }
+                if(cartera<=100)
+                {
+                    
+                }
                 i-=1
                 document.getElementById("coolDown").innerHTML=i
                     if(cartera>=2499&&!unlockedLogro1){
@@ -1027,7 +1081,7 @@
                             title:"Logro desbloqueado, un inicio",
                             icon: 'success'
                         })
-                        
+                        LogroMusica()
                         unlockedLogro1=true;
                     }
                     if(cartera>=2999&&!unlockedLogro2){
@@ -1035,7 +1089,7 @@
                             title:"Logro desbloqueado, pequeño capital",
                             icon: 'success'
                         })
-                        
+                        LogroMusica()
                         unlockedLogro2=true;
                     }
                     if(cartera>=3999&&!unlockedLogro3){
@@ -1043,6 +1097,7 @@
                             title:"Logro desbloqueado, inversionista creciente",
                             icon:'success'
                         })
+                        LogroMusica()
                         unlockedLogro3=true;
                     }
                     if(cartera>=5000&&!unlockedLogro4){
@@ -1051,7 +1106,7 @@
                             icon: 'success'
                             
                         })
-                        
+                        LogroMusica()
                         unlockedLogro4=true;
                     }
             },1100)
@@ -1090,14 +1145,19 @@
         }
         const btnIniciar = document.getElementById("btnIniciar")
         var contadorTiempo = document.getElementById("contadorTiempo")
-        btnIniciar.addEventListener('click',iniciarContador)
+        btnIniciar.addEventListener('click',()=>
+        {
+            tutoModal.style.display="block"
+        })
         
         function iniciarContador() {
             btnIniciar.style.display = "none";
+            tutoModal.style.display="block"
             contadorTiempo.style.display="inline-block"
-            tiempoJuego = 300;
+            tiempoJuego = 40;
             contadores();
             habilitarBotones()
+            audioSonando=true;
             function actualizarContador() {
             var minutos = Math.floor(tiempoJuego / 60);
             var segundos = tiempoJuego % 60;
@@ -1110,10 +1170,11 @@
                 }
             }
             intervalo = setInterval(actualizarContador, 1000);
+            Ejecutar()
         }
         function reiniciarValores()
         {
-            i=10
+            i=2 
             valAccionApple=190;
             valAccionNike=107;
             valAccionGoogle=124;
@@ -1171,12 +1232,22 @@
         deshabilitarBotones()
         contadorTiempo.style.display="none"
         var btnSalirModal = document.getElementById("btnSalirModal")
+        var btnSalirModalTuto = document.getElementById("btnSalirModalTuto")
+
+        btnSalirModalTuto.addEventListener("click",()=>{
+            iniciarContador()
+            tutoModal.style.display="none"
+        })
         btnSalirModal.addEventListener("click",() => {
             modal.style.display = "none";
         });
+
         window.addEventListener("click",(event)=> {
             if (event.target == modal) {
                 modal.style.display = "none";
+            }
+            else if(event.target==tutoModal){
+                tutoModal.style.display="none"
             }
         });
         var oscuro=document.getElementById("oscuros")
@@ -1188,12 +1259,7 @@
         var msjsss=document.getElementById("msjsss")
         var ganStat=document.getElementById("ganStat")
         var cartDiv = document.getElementById("cartDiv")
-        btnTutorial.addEventListener("click",()=>{
-            informacion.innerHTML="En esta parte puedes seleccionar a cual empresa comprarle acciones"
-            sect1.style.zIndex=11
-            oscuro.style.display="flex"
-            contadorTuto=0
-        }); 
+        var tutoModal = document.getElementById("ventanaModalTuto")
         continuar.addEventListener("click",()=>{
                 switch(contadorTuto)
                 {

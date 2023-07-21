@@ -1,0 +1,19 @@
+@keyframes robot {from {background-position: 0px;}to {background-position: -500px;}}
+@-ms-keyframes robot {from {background-position: 0px;}to {background-position: -500px;}}
+@-o-keyframes robot {from {background-position: 0px;}to {background-position: -500px;}}
+@-moz-keyframes robot {from {background-position: 0px;}to {background-position: -500px;}}
+
+.robot {
+    /* EL WIDTH Y HEIGHT TIENE QUE SER CONSTANTE*/
+    width: 100px;
+    height: 100px;
+
+    background-image: url("sorprendido.png");/*imagen*/
+
+    /*animaciones*/
+    -ms-animation: robot .5s steps() infinite;
+    -webkit-animation: robot .5s steps(5, end) infinite;
+    -moz-animation: robot .5s steps(5, end) infinite;
+    -o-animation: robot .5s steps(5, end) infinite;
+    animation: robot .5s steps(5, end) infinite;
+}
