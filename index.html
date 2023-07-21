@@ -522,6 +522,63 @@
                     break
             }
         }
+
+        //!Frases para el robot Vaciloncio
+        function FrasesAleatoriasRobot(positiveWord)
+        {
+            var random = Math.floor(Math.random()*5)
+            var frase
+            if(positiveWord)
+            {
+                switch(random)
+                {
+                    case 1:
+                        frase="¡Felicidades! Conseguiste una ganacia"
+                        break
+                    case 2:
+                        frase="¡Vamos sigue asi!"
+                        break
+                    case 3:
+                        frase="¡Eres lo mejor!"
+                        break
+                    case 4:
+                        frase="Esa fue una muuuuy buena decision"
+                        break
+                    case 5:
+                        frase="Lo estas haciendo bien"
+                        break
+                    default:
+                        frase="placeholder"
+                        break
+                }
+            }
+            else
+            {
+                switch(random)
+                {
+                    case 1:
+                        frase="Ese fue un pequeño error, pero sigue adelante, ¡Tú puedes!"
+                        break
+                    case 2:
+                        frase="No dejes que este tropiezo te detenga"
+                        break
+                    case 3:
+                        frase="placeholder"
+                        break
+                    case 4:
+                        frase="placeholder"
+                        break
+                    case 5:
+                        frase="placeholder"
+                        break
+                    default:
+                        frase="placeholder"
+                        break
+
+                }
+            }
+            return frase
+        }
         function VenderAccion(){
             cantAcciVender = parseInt(document.getElementById('cantInput2').value);
             if(empresaSelect === 0)
@@ -533,6 +590,14 @@
                     gananciasTotales+=(valAccionApple*cantAcciVender);
                     acciCompApple -=cantAcciVender;
                     acciVendiApple+=cantAcciVender;
+                    if(valAccionApple-ultimoValorAp>=1)
+                    {
+
+                    }
+                    if(valAccionApple-ultimoValorAp<=1)
+                    {
+                        
+                    }
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Apple",
                         icon: 'success'
@@ -559,6 +624,14 @@
                     gananciasTotales+=(valAccionNike*cantAcciVender);
                     acciCompNike -=cantAcciVender;
                     acciVendiNike+=cantAcciVender;
+                    if(valAccionApple-ultimoValorAp>=1)
+                    {
+
+                    }
+                    if(valAccionApple-ultimoValorAp<=1)
+                    {
+                        
+                    }
                     Swal.fire({
                         title:"Se han vendido  "+cantAcciVender+" acciones de Nike",
                         icon: 'success'
@@ -586,6 +659,14 @@
                     gananciasTotales+=(valAccionGoogle*cantAcciVender);
                     acciCompGoogle -=cantAcciVender;
                     acciVendiGoogle+=cantAcciVender;
+                    if(valAccionApple-ultimoValorAp>=1)
+                    {
+
+                    }
+                    if(valAccionApple-ultimoValorAp<=1)
+                    {
+                        
+                    }
                     Swal.fire({
                         title:"Se han vendido las "+cantAcciVender+" acciones de Google",
                         icon: 'success'
@@ -601,14 +682,11 @@
                         title:"No tienes suficientes acciones para vender",
                         icon:'error'
                     })
-                    
                 }
-                
             }
             MostrarCantidadAcciones();
             ActualizarCartera();
         }
-        
         const ctx = document.querySelector("#stats");
         function drawGraph()
         {
@@ -1072,7 +1150,7 @@
                 }
                 else
                 {
-                    
+
                 }
                 i-=1
                 document.getElementById("coolDown").innerHTML=i
@@ -1202,18 +1280,31 @@
         }
         var span = document.getElementsByClassName("cerrar")[0];
         var modal = document.getElementById("ventanaModal");
+        var estadoJugador = document.getElementById("estadoJugador");
+        function estadoJuga(){
+            if(cartera<500){
+                estadoJugador.innerHTML="Perdiste"
+                estadoJugador.style.color="red"
+            }
+            else if(cartera>=500)
+            {
+                estadoJugador.innerHTML="¡Ganaste!"
+                estadoJugador.style.color="green"
+            }
+        }
         function pararJuego() 
         {
+            estadoJuga();
             clearInterval(intervalo);
             clearInterval(secInterval);
             clearInterval(coolInterval);
-            mostrarModal()
-            deshabilitarBotones()
-            NonSelected()
-            reiniciarValores()
-            drawGraph()
-            PerdidaGanancia()
-            ActualizarCartera()
+            mostrarModal();
+            deshabilitarBotones();
+            NonSelected();
+            reiniciarValores();
+            drawGraph();
+            PerdidaGanancia();
+            ActualizarCartera();
         }
         var acciVendiAppleT = document.getElementById("accVendiApple")
         var acciVendiGoogleT = document.getElementById("accVendiGoogle")
