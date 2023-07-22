@@ -131,8 +131,8 @@
                                 <span><span>Tiempo Restante: <span id="contadorTiempo"></span></span></span>
                                 <span>Ganancias Totales: <span id="totalGains">0</span></span>
                                 <button id="btnIniciar">Iniciar Juego</button>
-<div class=tuyo>
-<button id="btnIniciarTuto">Iniciar Tutorial</button>
+<div class=tuto>
+<button id="btnIniciarTutorial">Iniciar Tutorial</button>
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,8 @@
 var btnIniciarTuto = document.getElementById("btnIniciarTuto")
 btnIniciarTuto.addEventListener("click",()=>{
 var tutorialUwU=document.getElementById("oscuros")
-tutorialUwU.style.zIndex=999
+tutorialUwU.style.zIndex=10
+tutorialUWU.style.display="block"
 })
         let contadorTuto=0
         let acciVendiApple=0
@@ -1391,38 +1392,38 @@ tutorialUwU.style.zIndex=999
                 {
                     case 0:
                         sect1.style.zIndex=1
-                        informacion.innerHTML="Aqui puedes comprar y vender las acciones que hayas comprado, recuerda comprar barato y vender caro"
+                        //informacion.innerHTML="Aqui puedes comprar y vender las acciones que hayas comprado, recuerda comprar barato y vender caro"
                         btnsCV.style.backgroundColor="#fff"
                         btnsCV.style.zIndex=11
                         contadorTuto=1
                         break
                     case 1:
                         btnsCV.style.zIndex=1
-                        informacion.innerHTML="Este contador te muestra cuanto tiempo falta para que se actualizen los valores de las acciones, aprovecha el </br> tiempo para planificar tu proximo movimiento"
+                        //informacion.innerHTML="Este contador te muestra cuanto tiempo falta para que se actualizen los valores de las acciones, aprovecha el </br> tiempo para planificar tu proximo movimiento"
                         nuevosGraficos.style.zIndex=11
                         contadorTuto=2
                         break
                     case 2:
                         nuevosGraficos.style.zIndex=1
-                        informacion.innerHTML="Esta grafica muestra los movimientos de cada una de las acciones, selecciona una empresa diferente para ver los demas"
+                        //informacion.innerHTML="Esta grafica muestra los movimientos de cada una de las acciones, selecciona una empresa diferente para ver los demas"
                         canvas.style.zIndex=11
                         contadorTuto=3
                         break
                     case 3:
                         canvas.style.zIndex=1
-                        informacion.innerHTML="Actualmente esta deshabilitado, pero cuando empieces a jugar podras presionar para obtener una evento aleatorio </br> que afectara al valor de las acciones, y a lo mejor tambien de tu cartera"
+                        //informacion.innerHTML="Actualmente esta deshabilitado, pero cuando empieces a jugar podras presionar para obtener una evento aleatorio </br> que afectara al valor de las acciones, y a lo mejor tambien de tu cartera"
                         msjsss.style.zIndex=11
                         contadorTuto=4
                         break
                     case 4:
                         msjsss.style.zIndex=1
-                        informacion.innerHTML="Esta seccion sera tú mejor amiga, aqui podras ver informacion sobre tús posibles ganancias o perdidas, </br> y algunas estadisticas, como el tiempo restante y la ganancia total"
+                        //informacion.innerHTML="Esta seccion sera tú mejor amiga, aqui podras ver informacion sobre tús posibles ganancias o perdidas, </br> y algunas estadisticas, como el tiempo restante y la ganancia total"
                         ganStat.style.zIndex=11
                         contadorTuto=5
                         break
                     case 5:
                         ganStat.style.zIndex=1
-                        informacion.innerHTML="Esta es tú cartera, empiezas con 2000 Bitcoin, solo tu sabrás con cuanto terminarás"
+                        //informacion.innerHTML="Esta es tú cartera, empiezas con 2000 Bitcoin, solo tu sabrás con cuanto terminarás"
                         cartDiv.style.zIndex=11
                         contadorTuto=6
                         break
